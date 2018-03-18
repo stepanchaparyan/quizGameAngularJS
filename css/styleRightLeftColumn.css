@@ -1,0 +1,96 @@
+/***right-part***/
+.right-part {
+  background-color: #f5f0e4;
+  height: 100%;
+  padding: 10px 1px 10px 1px; }
+
+#point {
+  font-size: 32px;
+  font-weight: bold;
+  color: orangered;
+  margin: 10px; }
+
+#pointText {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #0d618a;
+  font-size: 26px; }
+
+#titlePart {
+  background-color: #eff4f9;
+  border-radius: 5px; }
+
+#knightTitle {
+  color: #0d618a;
+  font-weight: bold;
+  font-size: 24px;
+  padding-bottom: 1em;
+  cursor: pointer; }
+
+#knightTitle:hover {
+  color: black;
+  border-radius: 5px; }
+
+#myTitleIs {
+  color: #1072a1;
+  font-weight: bold;
+  font-size: 14px;
+  padding-top: 2em; }
+
+#showAllTitles {
+  background-color: #c0b89b;
+  padding-bottom: 10px;
+  border-radius: 5px; }
+
+#titles {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+  margin-left: 20%;
+  padding-top: 10px; }
+
+#listOfTitles {
+  background-color: #6f625c;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 0 10px 0;
+  border-radius: 5px; }
+
+#restart {
+  border: none;
+  color: #0d618a;
+  background-color: #f5f0e4;
+  font-size: 20px;
+  width: 80%;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 15px 0 15px 0; }
+
+#restart:hover {
+  color: white;
+  background-color: #0d618a;
+  border-radius: 5px; }
+
+/***left-part***/
+.left-part {
+  background-color: #f5f0e4;
+  height: 100%; }
+
+.info {
+  margin: 20px 0 20px 0;
+  font-size: 22px;
+  color: #0d618a;
+  font-weight: bold;
+  cursor: pointer; }
+
+.info:hover {
+  background-color: #0d618a;
+  color: white;
+  border-radius: 10px; }
+
+.bx-wrapper {
+  margin-top: 20px !important; }
+
+/*# sourceMappingURL=styleRightLeftColumn.css.map */

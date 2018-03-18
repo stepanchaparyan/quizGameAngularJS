@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Capitals</title>
+
+  <!-- Favicon.ico -->
+  <link href="img/favicon.ico" rel="shortcut icon">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/styleFlag.css">
+  <link rel="stylesheet" href="css/styleRightLeftColumn.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+  <script type="text/javascript" src="js/flag2.js"></script>
+  <script type="text/javascript" src="js/rightLeftColumn.js"></script>
+  <script type="text/javascript" src="js/login.js"></script>
+  <script type="text/javascript" src="src/lokijs.js"></script>
+  <script type="text/javascript" src="js/loki.js"></script>
+  <script type="text/javascript" src="src/countries.js"></script>
+  <script type="text/javascript" src="src/countries_asia.js"></script>
+  <script type="text/javascript" src="src/countries_europe.js"></script>
+  <script type="text/javascript" src="src/countries_africa.js"></script>
+  <script type="text/javascript" src="src/countries_americas.js"></script>
+  <script type="text/javascript" src="src/countries_oceania.js"></script>
+  <!--scripts for bxbuilder -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+
+</head>
+<body onload="loadFunction()">
+
+<!--Navbar-->
+    <nav class="navbar ">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" id="logo" onClick="window.location.reload()">Geography</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a>  <span id="username">  </span></a></li>
+            <li><img id="userPicture" src="img/stepan.jpg" alt="Avatar" class="avatar"></li>
+            <li><a><span class="glyphicon glyphicon-user"></span> Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+<!-- Start_card -->
+    <div class="row">
+
+      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 left-part">
+          <div class="info" onclick="window.location='index.html';">Main page</div>
+
+          <div class="cardStyle" style="border-color:green; background-color:#b7e2cf">
+            <img class="cardImgTop" src="img/berlin.jpg" alt="Card image" style="width:100%">
+            <div class="cardBody">
+              <h4 class="cardTitle">Capitals</h4>
+              <p class="cardText">Go to first level</p>
+              <button id="leftCard" class="buttonStart" onclick="window.location='indexCapital1.html';">Start</button>
+            </div>
+          </div>
+
+            <div class="bxslider">
+               <div><img src="data/flags/4x3/ad.svg"></div>
+               <div><img src="data/flags/4x3/ar.svg"></div>
+               <div><img src="data/flags/4x3/br.svg"></div>
+               <div><img src="data/flags/4x3/de.svg"></div>
+               <div><img src="data/flags/4x3/es.svg"></div>
+               <div><img src="data/flags/4x3/se.svg"></div>
+           </div>
+
+      </div>
+
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 center-part">
+
+      <div id="quizImage" class="hideDisplay">
+        <img class="cardImgTop" src="img/paris.jpeg" alt="Card image" style="width:100%">
+      </div>
+
+      <div id="main">
+      <div id="mainCards">
+
+        <div class="centerPartTitle col-lg-12 col-md-12 hidden-sm hidden-xs" id="centerPartTitle">Choose the continent and get more points</div>
+
+        <div class="cardCenter col-lg-4 col-md-4 col-sm-6 col-xs-6" id="startPageAsia">
+          <div class="cardStyle" style="border-color:green; background-color:#a0e2a0">
+            <img class="cardImgTop" src="img/asia.jpg" alt="Card image" >
+            <div class="cardBody" >
+              <h4 class="cardTitle">Capitals</h4>
+              <div class="cardContinent">Asia</div>
+              <button class="buttonStart" id="asia" onclick="start('Asia')">Start</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cardCenter col-lg-4 col-md-4 col-sm-6 col-xs-6" id="startPageEurope">
+          <div class="cardStyle" style="border-color:green; background-color:#a0e2a0">
+            <img class="cardImgTop" src="img/europe.png" alt="Card image" >
+            <div class="cardBody" >
+              <h4 class="cardTitle">Capitals</h4>
+              <div class="cardContinent">Europe</div>
+              <button class="buttonStart" id="europe" onclick="start('Europe')">Start</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cardCenter col-lg-4 col-md-4 col-sm-6 col-xs-6" id="startPpageAfrica">
+          <div class="cardStyle" style="border-color:green; background-color:#a0e2a0">
+            <img class="cardImgTop" src="img/africa.jpg" alt="Card image" >
+            <div class="cardBody" >
+              <h4 class="cardTitle">Capitals</h4>
+              <div class="cardContinent">Africa</div>
+              <button class="buttonStart" id="africa" onclick="start('Africa')">Start</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cardCenter col-lg-4 col-md-4 col-sm-6 col-xs-6" id="startPageAmericas">
+          <div class="cardStyle" style="border-color:green; background-color:#a0e2a0">
+            <img class="cardImgTop" src="img/americas.jpg" alt="Card image" >
+            <div class="cardBody" >
+              <h4 class="cardTitle">Capitals</h4>
+              <div class="cardContinent">Americas</div>
+              <button class="buttonStart" id="americas" onclick="start('Americas')">Start</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cardCenter col-lg-4 col-md-4 col-sm-6 col-xs-6" id="startPageOceania">
+          <div class="cardStyle" style="border-color:green; background-color:#a0e2a0">
+            <img class="cardImgTop" src="img/oceania.jpg" alt="Card image" >
+            <div class="cardBody" >
+              <h4 class="cardTitle">Capitals</h4>
+              <div class="cardContinent">Oceania</div>
+              <button class="buttonStart" id="oceania" onclick="start('Oceania')">Start</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cardCenter col-lg-4 col-md-4 col-sm-6 col-xs-6" id="startPageWorld">
+          <div class="cardStyle" style="border-color:green; background-color:#a0e2a0">
+            <img class="cardImgTop" src="img/world.jpg" alt="Card image" >
+            <div class="cardBody" >
+              <h4 class="cardTitle">Capitals</h4>
+              <div class="cardContinent">World</div>
+              <button class="buttonStart" id="world" onclick="start('World')">Start</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="levelResult hideDisplay" id="levelResult">
+          <button id="nextLevel" onclick="window.location='indexCapital2.html';">Play next level</button>
+        </div>
+
+	     </div>
+
+        <div id="quizResults" class="hideDisplay">
+
+          <div id="quizImage">
+            <img class="cardImgTop" src="img/paris.jpeg" alt="Card image" style="width:100%">
+          </div>
+
+          <div id="quizQuestions"></div>
+
+        <div id="quizAnswers">
+          <button class="answers" id="answer1" onclick="test()"></button>
+          <button class="answers" id="answer2" onclick="test()"></button>
+          <button class="answers" id="answer3" onclick="test()"></button>
+          <button class="answers" id="answer4" onclick="test()"></button>
+        </div>
+
+        <div id="resultMessage"></div>
+        <div id="resultStepScore">
+          <div id="resultStep"></div>
+          <div id="resultScore"></div>
+        </div>
+        <div role="navigation" class="quizNav" id="quizNav">
+          <button class="nextButton navButton" disabled role="button" id="btnNext" onclick="next()">Next</button>
+        </div>
+
+        </div>
+      </div>
+
+      <div class="feedbackPage hideDisplay" id="feedbackPage">
+        <div id="feedbackImage">
+          <img class="cardImgTop" src="img/paris2.jpg" alt="Card image" style="width:100%">
+        </div>
+        <h1>Congratulation!</h1>
+        <p class="finalScore" id="finalScore"></p>
+        <button id="btnNextGame" class="tryAgainButton" role="button" onclick="nextGame()">Next game</button>
+        <button id="btnTryAgain" class="tryAgainButton" role="button" onclick="tryAgain()">Reset points and Try Again</button>
+      </div>
+
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 right-part">
+      <div id="pointText">Points</div>
+      <div id="point"></div>
+    <div id="titlePart">
+      <div id="myTitleIs">My title is </div>
+      <div id="knightTitle" onmouseover="showAllTitles()" onmouseout="hideAllTitles()">Knight</div>
+    </div>
+    <div id="showAllTitles" class="hideDisplay">
+      <div id="listOfTitles">List of titles</div>
+      <div id="titles">1.&nbsp;&nbsp; Knight</div>
+      <div id="titles">2.&nbsp;&nbsp; Baron</div>
+      <div id="titles">3.&nbsp;&nbsp; Graf</div>
+      <div id="titles">4.&nbsp;&nbsp; Duke</div>
+      <div id="titles">5.&nbsp;&nbsp; King</div>
+    </div>
+      <button id="restart" onclick="tryAgain()">Restart game</button>
+    </div>
+
+    </div>
+
+<footer>
+  <span class="coll-sm-6 footerLeft">Chaparyan</span>
+  <span class="coll-sm-6 footerRight">Geography Quiz<span>
+</footer>
+
+</body>
+</html>
