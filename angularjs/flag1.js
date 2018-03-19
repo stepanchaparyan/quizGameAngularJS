@@ -1,4 +1,4 @@
-var app = angular.module('flag1App', []);
+var app = angular.module('flagApp', []);
 app.controller('flag1Ctrl', function($scope) {
     $scope.firstName= "John";
     $scope.lastName= "Doe";
