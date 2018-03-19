@@ -1,48 +1,350 @@
 <!DOCTYPE html>
-<html ng-app="flagApp">
-<head>
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
-  <script src="script.js"></script>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Geography</title>
+    <meta name="description" content="web-page about geograpy, countries, capitals, flags">
+    <meta name="keywords" content="game, geography, country, capital, flag, regions">
+
+    <link href="img/favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,300|Raleway:300,400,900,700italic,700,300,600">
+    <link rel="stylesheet" type="text/css" href="src/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="src/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="src/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/styleLoginSignup.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+
+  </head>
+  <body onload="loadFunctionMain()">
+
+    <!--HEADER-->
+    <div class="header" id="header">
+
+        <nav class="navbar-default navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Geo<span class="logo-dec">graphy</span></a>
+          </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="#header">Home</a></li>
+                <li><a href="#service">Services</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#contact">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                <li><a>  <span id="username"></span></a></li>
+                <li><img id="user_picture" src="img/stepan.jpg">&nbsp;</li>
+                <li id="signup" onclick="signup()"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li id="login" onclick="login()"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        <div id="loginPage" class="hideDisplay">
+          <div id="loginBox" class="loginBox wow fadeIn delay-08s">
+              <img src="img/avatar.png" class="avatar">
+              <h1>LogIn</h1>
+              <form id="registration_form">
+                <p>Username</p>
+                <input id="form_login_name" type="text" name="username" placeholder="Enter Username" required="">
+                <p id="login_name_error_message"></p>
+                <p>Password</p>
+                <input id="form_login_password" type="password" name="password" placeholder="Enter Password" required="">
+                <p id="login_password_error_message"></p>
+                <div id="loginbtn">
+                <button id="loginButton" onclick="userLogIn()" type="submit" value="Login" name="submit">Log In</button>
+                </div>
+              </form>
+          </div>
+        </div>
+
+        <div id="signupPage" class="hideDisplay">
+          <div id="signupBox" class="signupBox wow fadeIn delay-08s">
+              <img src="img/avatar.png" class="avatar">
+              <h1>Signup</h1>
+              <form id="signup_form">
+                <p>Name</p>
+                <input id="form_name" type="text" name="username" placeholder="Enter name" required="">
+                <p id="name_error_message"></p>
+                <p id="name_repeating_message"></p>
+                <p>Email</p>
+                <input id="form_email" type="text" name="email" placeholder="Enter Email" required="">
+                <p id="email_error_message"></p>
+                <p>Password</p>
+                <input id="form_password" type="password" name="password" placeholder="Enter Password" required="">
+                <p id="password_error_message"></p>
+                <p>Retype_password</p>
+                <input id="form_retype_password" type="password" name="retype_password" placeholder="Retype your password" required="">
+                <p id="retype_password_error_message"></p>
+                <div id="divButton">
+                <button id="signupButton" onclick="addUser()" type="submit" value="Signup" name="submit">Sign Up</button>
+                </div>
+              </form>
+          </div>
+        </div>
+
+      <div id="wrapper" class="wrapper">
+        <div class="container">
+          <div class="row">
+            <div id="titleText" class="banner-info text-center wow fadeIn delay-05s">
+              <div class="bnr-title">Learning GEO<span class="logo-dec">GRAPHY</span> is fun</div>
+              <div class="bnr-sub-title">Let's start just now!</div>
+              <p class="bonus-line"><span class="bonus-word">BONUS</span> <span class="logo-dec">Armenian Geography</span></p>
+              <div class="wow fadeInUp">
+                <a href="#games" class="btn btn-start">Start now</a>
+                <a href="#service" class="btn btn-more">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="overlay-detail">
+        <a href="#service"><i class="fa fa-angle-down"></i></a>
+      </div>
+
+    </div>
+    <!--/ HEADER-->
+
+    <section id="service" class="section-padding wow fadeInUp delay-05s">
+      <hr>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h2 class="service-title pad-bt15">What We Do?</h2>
+            <p class="service-sub-title pad-bt15">We learn geography to Everyone. We have games for Everyone<br> Game questions about counties, capitals, flags, county borders, rivers, seas ...</p>
+            <hr class="bottom-line">
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="service-item">
+              <div><span>C</span>ountries and capitals</div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <a href="">learn more...</a>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="service-item">
+              <div><span>F</span>lags and countries</div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <a href="">learn more...</a>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="service-item">
+              <div><span>G</span>eograpy about each continent</div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <a href="">learn more...</a>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="service-item">
+              <div><span>A</span>rmenian Geography</div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <a href="">Learn more...</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Games-->
+
+    <section id="games" class="section-padding wow fadeInUp delay-05s">
+      <hr>
+      <div class="container">
+        <div class="row">
+
+          <div class="gameTitle">Games</div>
+          <div class="gameText">We have many types of games <br> Everey game has four level wich you can reach after winning some points</div>
+
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="cardStyle" style="border-color:green; background-color:#b7e2cf">
+              <img class="cardImgTop" src="img/berlin.jpg" alt="Card image" style="width:100%">
+              <div class="cardBody">
+                <h4 class="cardTitle">Capitals</h4>
+                <p class="cardText">In the First level you are the Knight and can become the <b>Baron</b></p>
+                <button id="capital1" class="buttonStyle" onclick=window.open("indexFlag1.html")>Start this game</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="cardStyle" style="border-color:orange; background-color:#8dd1b3">
+              <img class="cardImgTop" src="img/paris.jpeg" alt="Card image" style="width:100%">
+              <div class="cardBody" >
+                <h4 class="cardTitle">Capitals</h4>
+                <p class="cardText">In the Second level you are the Baron and can become the <b>Graf</b></p>
+                <button id="capital2" class="buttonStyle" disabled="disabled" onclick=window.open("indexFlag2.html")>Start this game</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="cardStyle" style="border-color:lightblue; background-color:#55bb8d">
+              <img class="cardImgTop" src="img/washington.jpg" alt="Card image" style="width:100%">
+              <div class="cardBody" >
+                <h4 class="cardTitle">Capitals</h4>
+                <p class="cardText">In the Third level you are the Graf and can become the <b>Duke</b></p>
+                <button class="buttonStyle" disabled="disabled" onclick="window.location='../capital_simple/index.html';">Start this game</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="cardStyle" style="border-color:purple; background-color:#3d986f">
+              <img class="cardImgTop" src="img/moscow.jpg" alt="Card image" style="width:100%">
+              <div class="cardBody" >
+                <h4 class="cardTitle">Capitals</h4>
+                <p class="cardText">In the Fourth level you are the Duke and can become the <b>King</b></p>
+                <button class="buttonStyle" disabled="disabled" onclick="window.location='../capital_simple/index.html';">Start this game</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <hr>
+
+        <div class="row">
+
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="cardStyle" style="border-color:green; background-color:#a0e2a0">
+              <img class="cardImgTop" src="img/spain_flag.png" alt="Card image" style="width:100%">
+              <div class="cardBody">
+                <h4 class="cardTitle">Flags</h4>
+                <p class="cardText">TODO</p>
+                <button class="buttonStyle" disabled="disabled" onclick="window.location='../capital_simple/index.html';">Start this game</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="cardStyle" style="border-color:orange; background-color:#EFD75B">
+              <img class="cardImgTop" src="img/india_flag.png" alt="Card image" style="width:100%">
+              <div class="cardBody" >
+                <h4 class="cardTitle">Flags</h4>
+                <p class="cardText">TODO</p>
+                <button class="buttonStyle" disabled="disabled" onclick="window.location='../capital_simple/index.html';">Start this game</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="cardStyle" style="border-color:lightblue; background-color:#9bc2cf">
+              <img class="cardImgTop" src="img/port06.jpg" alt="Card image" style="width:100%">
+              <div class="cardBody" >
+                <h4 class="cardTitle">Flags</h4>
+                <p class="cardText">TODO</p>
+                <button class="buttonStyle" disabled="disabled" onclick="window.location='../capital_simple/index.html';">Start this game</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="cardStyle" style="border-color:purple; background-color:#d8b2d8">
+              <img class="cardImgtop" src="img/port06.jpg" alt="Card image" style="width:100%">
+              <div class="cardBody" >
+                <h4 class="cardTitle">Flags</h4>
+                <p class="cardText">TODO</p>
+                <button class="buttonStyle" disabled="disabled" onclick="window.location='../capital_simple/index.html';">Start this game</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
 
 
-  <title>Capitals</title>
-  <!-- Favicon.ico -->
-  <link href="img/favicon.ico" rel="shortcut icon">
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- jQuery library -->
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!--internal CSS file-->
-  <link rel="stylesheet" href="css/styleFlag.css">
-  <link rel="stylesheet" href="css/styleRightLeftColumn.css">
-  <!--internal JS file-->
-  <script type="text/javascript" src="js/flag1.js"></script>
-  <script type="text/javascript" src="js/flag2.js"></script>
-  <script type="text/javascript" src="js/rightLeftColumn.js"></script>
-  <script type="text/javascript" src="src/lokijs.js"></script>
-  <script type="text/javascript" src="js/loki.js"></script>
-  <script type="text/javascript" src="js/login.js"></script>
-  <script type="text/javascript" src="src/countries.js"></script>
-  <script type="text/javascript" src="src/countries_asia.js"></script>
-  <script type="text/javascript" src="src/countries_europe.js"></script>
-  <script type="text/javascript" src="src/countries_africa.js"></script>
-  <script type="text/javascript" src="src/countries_americas.js"></script>
-  <script type="text/javascript" src="src/countries_oceania.js"></script>
-  <!--scripts for bxbuilder -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-</head>
+    <!--Contacts-->
 
-<body>
+    <section id="contact" class="section-padding wow fadeInUp delay-05s">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center white">
+            <h2 class="service-title pad-bt15">Keep in touch with us</h2>
+            <p class="sub-title pad-bt15">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore magna aliqua.</p>
+            <hr class="bottom-line white-bg">
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="loction-info white">
+              <p><i class="fa fa-map-marker fa-fw pull-left fa-2x"></i>54 Mastots Street<br>Lori, Armenia, 2001</p>
+              <p><i class="fa fa-envelope-o fa-fw pull-left fa-2x"></i>info@flags.com</p>
+              <p><i class="fa fa-phone fa-fw pull-left fa-2x"></i>+374 93 332113</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="contact-form">
+                <div id="sendmessage">Your message has been sent. Thank you!</div>
+                <div id="errormessage"></div>
+                <form action="" method="post" role="form" class="contactForm">
+                    <div class="col-md-6 padding-right-zero">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                            <div class="validation"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                            <div class="validation"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                            <div class="validation"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                            <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                            <div class="validation"></div>
+                        </div>
+                      <button type="submit" class="btn btn-primary btn-submit">SEND NOW</button>
+                    </div>
+                </form>
 
-  <ng-view></ng-view>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <footer id="footer">
+      <div class="container">
+        <div class="row text-center">
+          <p>&copy; Chaparyan Team. All Rights Reserved.</p>
+          <div class="credits">
+            Designed  by <a href="https://chaparyan.com/">Chaparyan</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!---->
 
+    <script src="src/jquery.min.js"></script>
+    <script src="src/jquery.easing.min.js"></script>
+    <script src="src/bootstrap.min.js"></script>
+    <script src="src/wow.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/signup.js"></script>
+    <script src="js/login.js"></script>
+    <script src="src/lokijs.js"></script>
+    <script src="js/loki.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-</body>
-
+  </body>
 </html>

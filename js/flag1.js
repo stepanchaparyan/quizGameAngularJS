@@ -78,8 +78,6 @@ let finalResult = () => {
   }
 }
 
-
-// need to update name
 let setDisabledThisGame = () => {
   if (countriesList == COUNTRIES_ASIA) {
     addDisabledCapital1("asia");
