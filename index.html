@@ -4,36 +4,19 @@
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
   <script src="script.js"></script>
-  <style>.active { color: red; font-weight: bolder; }</style>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
+  <link rel="stylesheet" href="css/styleFlag.css">
+  <link rel="stylesheet" href="css/styleRightLeftColumn.css">
 </head>
 
 <body ng-app="flagCtrl">
 
-  <div class="row">
-      <div class="col-sm-12 well">
-          Header | <a ui-sref="home()" ui-sref-active="active">Home</a>
-      </div>
-  </div>
-  <div class="row">
-      <div class="col-sm-3 well">
-        <a ui-sref="flag1()" ui-sref-active="active">Flag1</a>
-        <a ui-sref="flag2()" ui-sref-active="active">Flag2</a>
-      </div>
-  </div>
-  <div class="row">
-      <div class="col-sm-9 well">
-        <ui-view>
-          <i>Loading ....</i>
-        </ui-view>
-      </div>
-  </div>
+  <ui-view>
+      <i>Loading ....</i>
+  </ui-view>
 
 </body>
-
 </html>

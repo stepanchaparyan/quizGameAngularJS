@@ -1,11 +1,39 @@
-<div ng-controller="homeCtrl" class="jumbotron text-center">
-	<h1>Home Page</h1>
+<div ng-controller="homeCtrl">
 
-	<a ui-sref="home()" ui-sref-active="active">Home</a>
-  <a ui-sref="flag1()" ui-sref-active="active">Flag1</a>
-  <a ui-sref="flag2()" ui-sref-active="active">Flag2</a>
+	<nav class="navbar">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" id="logo" onClick="window.location.reload()">Geography</a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a>  <span id="username"> </span></a></li>
+						<li><img id="userPicture" src="img/stepan.jpg" alt="Avatar" class="avatar"></li>
+						<li><a><span class="glyphicon glyphicon-user"></span> Sign out</a></li>
+					</ul>
+				</div>
+			</div>
+	</nav>
 
+			<div class="row">
+				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 left-part">
+						<div class="info" onclick="window.location='index.html';">Main page</div>
+						<div class="info" ui-sref="home()" ui-sref-active="active">Home</div>
+						<div class="info" ui-sref="flag1()" ui-sref-active="active">Flag 1</div>
+						<div class="info" ui-sref="flag2()" ui-sref-active="active">Flag 2</div>
+				</div>
 
+			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 center-part">
+			</div>
 
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 right-part">
+			</div>
+
+			</div>
+
+	<footer>
+		<span class="coll-sm-6 footerLeft">Chaparyan</span>
+		<span class="coll-sm-6 footerRight">Geography Quiz<span>
+	</footer>
 
 </div>
