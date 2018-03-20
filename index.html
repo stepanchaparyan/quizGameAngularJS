@@ -1,47 +1,38 @@
 <!DOCTYPE html>
-<html ng-app="flagApp">
+<html >
 <head>
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
   <script src="script.js"></script>
+  <style>.active { color: red; font-weight: bolder; }</style>
 
-
-  <title>Capitals</title>
-  <!-- Favicon.ico -->
-  <link href="img/favicon.ico" rel="shortcut icon">
-  <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- jQuery library -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!--internal CSS file-->
-  <link rel="stylesheet" href="css/styleFlag.css">
-  <link rel="stylesheet" href="css/styleRightLeftColumn.css">
-  <!--internal JS file-->
-  <script type="text/javascript" src="js/flag1.js"></script>
-  <script type="text/javascript" src="js/flag2.js"></script>
-  <script type="text/javascript" src="js/rightLeftColumn.js"></script>
-  <script type="text/javascript" src="src/lokijs.js"></script>
-  <script type="text/javascript" src="js/loki.js"></script>
-  <script type="text/javascript" src="js/login.js"></script>
-  <script type="text/javascript" src="src/countries.js"></script>
-  <script type="text/javascript" src="src/countries_asia.js"></script>
-  <script type="text/javascript" src="src/countries_europe.js"></script>
-  <script type="text/javascript" src="src/countries_africa.js"></script>
-  <script type="text/javascript" src="src/countries_americas.js"></script>
-  <script type="text/javascript" src="src/countries_oceania.js"></script>
-  <!--scripts for bxbuilder -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+
+
 </head>
 
-<body>
+<body ng-app="flagCtrl">
 
-  <ng-view></ng-view>
-
+  <div class="row">
+      <div class="col-sm-12 well">
+          Header | <a ui-sref="home()" ui-sref-active="active">Home</a>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-sm-3 well">
+        <a ui-sref="flag1()" ui-sref-active="active">Flag1</a>
+        <a ui-sref="flag2()" ui-sref-active="active">Flag2</a>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-sm-9 well">
+        <ui-view>
+          <i>Loading ....</i>
+        </ui-view>
+      </div>
+  </div>
 
 </body>
 

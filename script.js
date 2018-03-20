@@ -1,29 +1,33 @@
-	var flagApp = angular.module('flagApp', ['ngRoute']);
-	flagApp.config(function($routeProvider) {
-		$routeProvider
+var flagApp = angular.module('flagCtrl', ['ui.router']);
 
-			.when('/', {
-				templateUrl : 'pages/home.html',
-				controller  : 'mainController'
+flagApp.config(function($stateProvider, $urlRouterProvider) {
+	$stateProvider
+  	.state ("home", {
+    		url: '/',
+    		templateUrl: 'pages/home.html',
+				controller: "homeCtrl"
+  	})
+		.state ("flag1", {
+				url: '/flag1',
+				templateUrl: 'pages/flag1.html',
+				controller: "flag1Ctrl"
 			})
-			.when('/flag1', {
-				templateUrl : 'pages/flag1.html',
-				controller  : 'flag1Controller'
-			})
-			.when('/flag2', {
-				templateUrl : 'pages/flag2.html',
-				controller  : 'flag2Controller'
-			});
-	});
+		.state ("flag2", {
+				url: '/flag2',
+				templateUrl: 'pages/flag2.html',
+				controller: "flag2Ctrl"
+		})
+		$urlRouterProvider.otherwise('/');
+});
 
-	flagApp.controller('mainController', function($scope) {
-		$scope.message = 'Everyooone come and see how good I look!';
-	});
+flagApp.controller("homeCtrl", function ($scope) {
+		$scope.message = "home";
+})
 
-	flagApp.controller('flag1Controller', function($scope) {
-		$scope.message = 'Look! I am an about page.';
-	});
+flagApp.controller("flag1Ctrl", function ($scope) {
+		$scope.message = "flag1";
+})
 
-	flagApp.controller('flag2Controller', function($scope) {
-		$scope.message = 'Contact us! JK. This is just a demo.';
-	});
+flagApp.controller("flag2Ctrl", function ($scope) {
+		$scope.message = "flag2";
+})

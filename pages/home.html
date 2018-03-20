@@ -1,10 +1,11 @@
-<div class="jumbotron text-center">
-	<h1>Home Paage</h1>
+<div ng-controller="homeCtrl" class="jumbotron text-center">
+	<h1>Home Page</h1>
 
-				<li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-				<li><a href="#flag1"><i class="fa fa-shield"></i> Flag1</a></li>
-				<li><a href="#flag2"><i class="fa fa-comment"></i> Flag2</a></li>
+	<a ui-sref="home()" ui-sref-active="active">Home</a>
+  <a ui-sref="flag1()" ui-sref-active="active">Flag1</a>
+  <a ui-sref="flag2()" ui-sref-active="active">Flag2</a>
 
 
-	<p>{{ message }}</p>
+
+
 </div>

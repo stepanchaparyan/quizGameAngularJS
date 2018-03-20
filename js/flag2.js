@@ -1,42 +1,84 @@
+
+flagApp.controller('flag2Controller', function($scope) {
+  $scope.message = 'Contact us! JK. This is just a demo.';
+
+
+  var userName = "userName";
+  var userNumber = 0;
+
+  let loadFunction = () => {
+    document.getElementById('point').innerHTML = info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].CapitalPoints;
+    console.log("name " + currentUser.data[currentUser.data.length-1].currentUserName);
+    console.log("number " + currentUser.data[currentUser.data.length-1].currentUserNumber);
+    document.getElementById('username').innerHTML = currentUser.data[currentUser.data.length-1].currentUserName;
+    checkDisabledInLoad();
+    checkTitleOnLoad();
+  }
+
+  $(document).ready(function(){
+  $('.bxslider').bxSlider({
+    auto: true,
+    stopAutoOnClick: true,
+    pager: true,
+    slideWidth: 600,
+    speed: 800,
+    randomStart: true,
+    responsive: true,
+    controls: false
+  });
+  });
+
+  let showAllTitles = () => {
+    document.getElementById('showAllTitles').classList.remove("hideDisplay");
+  }
+
+  let hideAllTitles = () => {
+    document.getElementById('showAllTitles').classList.add("hideDisplay");
+  }
+
+
+
+
+
 // variables for question number and score
-let questionNumberFlag2 = 0;
-let scoreFlag2 = 0;
-let randomNumberMainFlag2;
-let randomNumberFlag2;
-let randomNumberExcludedFlag2;
-let countriesListFlag2;
-let randomNumberBetween1_4;
-let randomNumberExcluded1;
-let randomNumberExcluded2;
-let randomNumberExcluded3;
-let randomNumberCountriesLengthExcluded1;
-let randomNumberCountriesLengthExcluded2;
-let randomNumberCountriesLengthExcluded3;
+let questionNumber = 0;
+let score = 0;
+let randomNumberMain;
+let randomNumber;
+let randomNumberExcluded;
+let countriesList;
+var randomNumberBetween1_4;
+var randomNumberExcluded1;
+var randomNumberExcluded2;
+var randomNumberExcluded3;
+var randomNumberCountriesLengthExcluded1;
+var randomNumberCountriesLengthExcluded2;
+var randomNumberCountriesLengthExcluded3;
 
 //function for hide first card and show question cards
-let hideAndShowFlag2 = () => {
+let hideAndShow = () => {
   document.getElementById('mainCards').classList.add("hideDisplay");
   document.getElementById('quizResults').classList.remove("hideDisplay");
   document.getElementById('resultMessage').classList.add("hideDisplay");
 }
 
 //generate and print right or wrong question
-let questionsMainFlag2 = () => {
-  questionFlag2();
+let questionsMain = () => {
+  question();
   setRandomNumbersBetween1_4();
   setRandomNumbersCountriesLength();
-  getRandumAnswerFlag2();
+  getRandumAnswer();
 }
 
 //print question
-let questionFlag2 = () => document.getElementById("quizQuestions").innerHTML = "Which is the capital of " + countriesListFlag2[randomNumberFlag2].name;
+let question = () => document.getElementById("quizQuestions").innerHTML = "Which is the capital of " + countriesList[randomNumber].name;
 
-let getRandumAnswerFlag2 = () => {
+let getRandumAnswer = () => {
   var answer = [];
-  answer[0] = countriesListFlag2[randomNumberFlag2].capital;
-  answer[1] = countriesListFlag2[randomNumberCountriesLengthExcluded1].capital;
-  answer[2] = countriesListFlag2[randomNumberCountriesLengthExcluded2].capital;
-  answer[3] = countriesListFlag2[randomNumberCountriesLengthExcluded3].capital;
+  answer[0] = countriesList[randomNumber].capital;
+  answer[1] = countriesList[randomNumberCountriesLengthExcluded1].capital;
+  answer[2] = countriesList[randomNumberCountriesLengthExcluded2].capital;
+  answer[3] = countriesList[randomNumberCountriesLengthExcluded3].capital;
   document.getElementById("answer1").innerHTML = answer[randomNumberBetween1_4-1];
   document.getElementById("answer2").innerHTML = answer[randomNumberExcluded1-1];
   document.getElementById("answer3").innerHTML = answer[randomNumberExcluded2-1];
@@ -65,57 +107,57 @@ var setRandomNumbersBetween1_4 = () => {
 var setRandomNumbersCountriesLength = () => {
   function generateRandom1(min, max) {
     var num = Math.floor(Math.random() * (max - min + 1)) + min;
-    return (num === randomNumberFlag2) ? generateRandom1(min, max) : num;
+    return (num === randomNumber) ? generateRandom1(min, max) : num;
   }
   function generateRandom2(min, max) {
     var num = Math.floor(Math.random() * (max - min + 1)) + min;
-    return (num === randomNumberFlag2 || num === randomNumberCountriesLengthExcluded1) ? generateRandom2(min, max) : num;
+    return (num === randomNumber || num === randomNumberCountriesLengthExcluded1) ? generateRandom2(min, max) : num;
   }
   function generateRandom3(min, max) {
     var num = Math.floor(Math.random() * (max - min + 1)) + min;
-    return (num === randomNumberFlag2 || num === randomNumberCountriesLengthExcluded1 || num === randomNumberCountriesLengthExcluded2) ? generateRandom3(min, max) : num;
+    return (num === randomNumber || num === randomNumberCountriesLengthExcluded1 || num === randomNumberCountriesLengthExcluded2) ? generateRandom3(min, max) : num;
   }
-  randomNumberCountriesLengthExcluded1 = generateRandom1(1, countriesListFlag2.length-1);
-  randomNumberCountriesLengthExcluded2 = generateRandom2(1, countriesListFlag2.length-1);
-  randomNumberCountriesLengthExcluded3 = generateRandom3(1, countriesListFlag2.length-1);
+  randomNumberCountriesLengthExcluded1 = generateRandom1(1, countriesList.length-1);
+  randomNumberCountriesLengthExcluded2 = generateRandom2(1, countriesList.length-1);
+  randomNumberCountriesLengthExcluded3 = generateRandom3(1, countriesList.length-1);
 }
 
-let testFlag2 = () => {
-  if (this.event.target.innerHTML == countriesListFlag2[randomNumberFlag2].capital) {
-    setNewCSSFlag2(this.event.target.id, "green");
+let test = () => {
+  if (this.event.target.innerHTML == countriesList[randomNumber].capital) {
+    setNewCSS(this.event.target.id, "green");
     score += 1;
-    resultFlag2();
-    changeDisabledFlag2();
-    getFocusFlag2();
+    result();
+    changeDisabled();
+    getFocus();
   } else {
-    setNewCSSFlag2(this.event.target.id, "red");
-    addRightAnswerFlag2();
-    resultFlag2();
-    changeDisabledFlag2();
-    getFocusFlag2();
+    setNewCSS(this.event.target.id, "red");
+    addRightAnswer();
+    result();
+    changeDisabled();
+    getFocus();
   }
 }
 
 //print Right answer
-let addRightAnswerFlag2 = () => document.getElementById("resultMessage").innerHTML = "Right answer: " + countriesListFlag2[randomNumberFlag2].capital + " is the capital of " + countriesListFlag2[randomNumberFlag2].name;
+let addRightAnswer = () => document.getElementById("resultMessage").innerHTML = "Right answer: " + countriesList[randomNumber].capital + " is the capital of " + countriesList[randomNumber].name;
 
 //list of functions/action for next button
-let nextFlag2 = () => {
-  questionNumberFlag2 += 1;
+let next = () => {
+  questionNumber += 1;
   document.getElementById('answer1').removeAttribute("class");
   document.getElementById('answer2').removeAttribute("class");
   document.getElementById('answer3').removeAttribute("class");
   document.getElementById('answer4').removeAttribute("class");
   document.getElementById('resultMessage').removeAttribute("class");
   document.getElementById('resultMessage').setAttribute("class", "hideDisplay");
-  changeDisabledFlag2();
-  chooseContinentFlag2();
+  changeDisabled();
+  chooseContinent();
 }
 
-let getFocusFlag2 = () => document.getElementById("btnNext").focus();
+let getFocus = () => document.getElementById("btnNext").focus();
 
 //generate CSS for right or wrong answer
-let setNewCSSFlag2 = (id, color) => {
+let setNewCSS = (id, color) => {
   if (color == "green") {
     document.getElementById(id).setAttribute("class", "greenBorder");
     document.getElementById('resultMessage').setAttribute("class", "greenBorder");
@@ -128,7 +170,7 @@ let setNewCSSFlag2 = (id, color) => {
 }
 
 //change element from disabled to abled and vice versa
-let changeDisabledFlag2 = () => {
+let changeDisabled = () => {
   document.getElementById('btnNext').disabled = !document.getElementById('btnNext').disabled;
   document.getElementById('answer1').disabled = !document.getElementById('answer1').disabled;
   document.getElementById('answer2').disabled = !document.getElementById('answer2').disabled;
@@ -137,40 +179,38 @@ let changeDisabledFlag2 = () => {
 }
 
 //print score and question number
-let resultFlag2 = () => {
-  document.getElementById("resultStep").innerHTML = " Question: " + (questionNumberFlag2 + 1) + " /20";
-  document.getElementById("resultScore").innerHTML = " Score: " + scoreFlag2 + " /20";
+let result = () => {
+  document.getElementById("resultStep").innerHTML = " Question: " + (questionNumber + 1) + " /20";
+  document.getElementById("resultScore").innerHTML = " Score: " + score + " /20";
 }
 
-let finalResultFlag2 = () => {
+let finalResult = () => {
   let text;
-  if (questionNumberFlag2 == 20) {
-    text = "Thanks you, you got " + scoreFlag2 + " points";
+  if (questionNumber == 20) {
+    text = "Thanks you, you got " + score + " points";
   document.getElementById("finalScore").innerHTML = text;
   document.getElementById('main').classList.add("hideDisplay");
   document.getElementById('feedbackPage').removeAttribute("class");
   }
 }
 
-
-// need to update name
-let setDisabledThisGameFlag2 = () => {
-  if (countriesListFlag2 == COUNTRIES_ASIA) {
+let setDisabledThisGame = () => {
+  if (countriesList == COUNTRIES_ASIA) {
     addDisabledCapital2("asia");
-  } else if (countriesListFlag2 == COUNTRIES_EUROPE) {
+  } else if (countriesList == COUNTRIES_EUROPE) {
     addDisabledCapital2("europe");
-  } else if (countriesListFlag2 == COUNTRIES_AFRICA) {
+  } else if (countriesList == COUNTRIES_AFRICA) {
     addDisabledCapital2("africa");
-  } else if (countriesListFlag2 == COUNTRIES_AMERICAS) {
+  } else if (countriesList == COUNTRIES_AMERICAS) {
     addDisabledCapital2("americas");
-  } else if (countriesListFlag2 == COUNTRIES_OCEANIA) {
+  } else if (countriesList == COUNTRIES_OCEANIA) {
     addDisabledCapital2("oceania");
   } else {
     addDisabledCapital2("world");
   }
 }
 
-let checkDisabledInLoadFlag2 = () => {
+let checkDisabledInLoad = () => {
     console.log("len " + info.data.length);
     if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].asia2 == "disabled") {
       document.getElementById("asia").setAttribute("disabled", "disabled");
@@ -192,7 +232,7 @@ let checkDisabledInLoadFlag2 = () => {
     }
 }
 
-let checkTitleOnLoadFlag2 = () => {
+let checkTitleOnLoad = () => {
   if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].asia1 == "disabled" &&
       info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].europe1 == "disabled" &&
       info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].africa1 == "disabled" &&
@@ -215,47 +255,49 @@ let checkTitleOnLoadFlag2 = () => {
 }
 
 //generateRandum numbers for question
-let setRandomNumbersFlag2 = (continent) => {
+let setRandomNumbers = (continent) => {
   if(continent == "Asia") {
-    countriesListFlag2 = COUNTRIES_ASIA;
+    countriesList = COUNTRIES_ASIA;
   } else if (continent == "Europe") {
-    countriesListFlag2 = COUNTRIES_EUROPE;
+    countriesList = COUNTRIES_EUROPE;
   } else if (continent == "Africa") {
-    countriesListFlag2 = COUNTRIES_AFRICA;
+    countriesList = COUNTRIES_AFRICA;
   } else if (continent == "Americas") {
-    countriesListFlag2 = COUNTRIES_AMERICAS;
+    countriesList = COUNTRIES_AMERICAS;
   } else if (continent == "Oceania") {
-    countriesListFlag2 = COUNTRIES_OCEANIA;
+    countriesList = COUNTRIES_OCEANIA;
   } else {
-    countriesListFlag2 = COUNTRIES;
+    countriesList = COUNTRIES;
   }
-  randomNumberFlag2 = Math.floor(Math.random() * countriesListFlag2.length-1) + 1;
+  randomNumber = Math.floor(Math.random() * countriesList.length-1) + 1;
 }
 
-let chooseContinentFlag2 = () => {
-  if(countriesListFlag2 == COUNTRIES_EUROPE) {
-    startFlag2("Europe");
-  } else if (countriesListFlag2 == COUNTRIES_ASIA) {
-    startFlag2("Asia");
-  } else if (countriesListFlag2 == COUNTRIES_AFRICA) {
-    startFlag2("Africa");
-  } else if (countriesListFlag2 == COUNTRIES_AMERICAS) {
-    startFlag2("Americas");
-  } else if (countriesListFlag2 == COUNTRIES_OCEANIA) {
-    startFlag2("Oceania");
+let chooseContinent = () => {
+  if(countriesList == COUNTRIES_EUROPE) {
+    start("Europe");
+  } else if (countriesList == COUNTRIES_ASIA) {
+    start("Asia");
+  } else if (countriesList == COUNTRIES_AFRICA) {
+    start("Africa");
+  } else if (countriesList == COUNTRIES_AMERICAS) {
+    start("Americas");
+  } else if (countriesList == COUNTRIES_OCEANIA) {
+    start("Oceania");
   } else {
-    startFlag2("World");
+    start("World");
   }
 }
 
-let startFlag2 = (continent) => {
-  setRandomNumbersFlag2(continent);
-  startAllFlag2();
+let start = (continent) => {
+  setRandomNumbers(continent);
+  startAll();
 }
 
-let startAllFlag2 = () => {
-  hideAndShowFlag2();
-  questionsMainFlag2();
-  resultFlag2();
-  finalResultFlag2();
+let startAll = () => {
+  hideAndShow();
+  questionsMain();
+  result();
+  finalResult();
 }
+
+});
