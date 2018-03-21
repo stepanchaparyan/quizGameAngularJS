@@ -18,6 +18,7 @@ flagApp.config(function($stateProvider, $urlRouterProvider) {
 				controller: "flag2Ctrl"
 		})
 		$urlRouterProvider.otherwise('/');
+//		$locationProvider.html5Mode(true);
 });
 
 flagApp.controller("homeCtrl", function ($scope) {
