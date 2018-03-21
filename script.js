@@ -25,10 +25,6 @@ flagApp.controller("homeCtrl", function ($scope) {
 		$scope.message = "home";
 })
 
-flagApp.controller("flag1Ctrl", function ($scope) {
-		$scope.message = "flag1";
-})
-
 flagApp.controller("flag2Ctrl", function ($scope) {
 		$scope.message = "flag2";
 })
