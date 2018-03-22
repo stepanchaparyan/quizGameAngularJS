@@ -4,18 +4,15 @@ flagApp.config(function($stateProvider, $urlRouterProvider) {
 	$stateProvider
   	.state ("home", {
     		url: '/',
-    		templateUrl: 'pages/home.html',
-				controller: "homeCtrl"
+    		templateUrl: 'pages/home.html'
   	})
 		.state ("flag1", {
 				url: '/flag1',
-				templateUrl: 'pages/flag1.html',
-				controller: "flag1Ctrl"
+				templateUrl: 'pages/flag1.html'
 			})
 		.state ("flag2", {
 				url: '/flag2',
-				templateUrl: 'pages/flag2.html',
-				controller: "flag2Ctrl"
+				templateUrl: 'pages/flag2.html'
 		})
 		$urlRouterProvider.otherwise('/');
 //		$locationProvider.html5Mode(true);

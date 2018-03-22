@@ -18,8 +18,8 @@
 	          <div class="cardStyle" style="border-color:green; background-color:#a0e2a0">
 	            <img class="cardImgTop" src="img/asia.jpg" alt="Card image" >
 	            <div class="cardBody">
-	              <h4 class="cardTitle">Capitals {{test}}</h4>
-	              <div class="cardContinent">Asia {{randomNumberMain()}}</div>
+	              <h4 class="cardTitle">Capitals</h4>
+	              <div class="cardContinent">Asia</div>
 	              <button class="buttonStart" id="asia" ng-click="card=true">Start</button>
 	            </div>
 	          </div>
@@ -31,7 +31,7 @@
 	            <div class="cardBody" >
 	              <h4 class="cardTitle">Capitals</h4>
 	              <div class="cardContinent">Europe</div>
-	              <button class="buttonStart" id="europe" ng-click="card=true">Start</button>
+	              <button class="buttonStart" id="europe" ng-click="card=true; start('Europe')">Start</button>
 	            </div>
 	          </div>
 	        </div>
@@ -88,11 +88,8 @@
 
 	      <div id="quizResults" ng-show="card">
 
-	        <div id="quizImage">
-	          <img class="cardImgTop" src="img/berlin.jpg" alt="Card image" style="width:100%">
-	        </div>
-
-	        <div id="quizQuestions"></div>
+					<img ng-src="{{ flag }}" style="width:240px; height:180px">
+					<div id="quizQuestions"> {{ rightAnswer }} {{ wrongAnswer }}</div>
 
 	        <div id="quizAnswers">
 	          <button id="right" onclick="testRight()">Right</button>
