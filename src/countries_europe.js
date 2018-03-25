@@ -243,7 +243,7 @@ const COUNTRIES_EUROPE = [
 	"subregion": "Southern Europe",
 	"language": ["Macedonian"],
 	"borders": ["ALB", "BGR", "GRC", "KOS", "SRB"],
-  "flag": "flags/mc.svg",
+  "flag": "flags/mk.svg",
 },
 {
 	"name": "Malta",

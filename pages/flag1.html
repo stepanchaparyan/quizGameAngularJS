@@ -88,21 +88,21 @@
 
 	      <div id="quizResults" ng-show="card">
 
-					<img ng-src="{{ flag }}" style="width:240px; height:180px">
-					<div id="quizQuestions"> {{ rightAnswer }} {{ wrongAnswer }}</div>
+					<img ng-src="{{ flag }}" style="width:240px; height:160px; margin-top:15px; border-color:black; border-width:bold">
+					<div id="quizQuestions"> {{ question }} </div>
 
 	        <div id="quizAnswers">
-	          <button id="right" onclick="testRight()">Right</button>
-	          <button id="wrong" onclick="testWrong()">Wrong</button>
+	          <button id="right" ng-class="classRightButton" ng-disabled="disabledButton" ng-click="message=true; testRight()">Right</button>
+	          <button id="wrong" ng-class="classWrongButton" ng-disabled="disabledButton" ng-click="message=true; testWrong()">Wrong</button>
 	        </div>
 
-	        <div id="resultMessage"></div>
+	        <div id="resultMessage" ng-show="message" ng-class="classAnswerText"> {{ answerText }}</div>
 	        <div id="resultStepScore">
-	          <div id="resultStep"></div>
-	          <div id="resultScore"></div>
+	          <div id="resultStep">{{ resultStep }}</div>
+	          <div id="resultScore">{{ resultScore }}</div>
 	        </div>
 	        <div role="navigation" class="quizNav" id="quizNav">
-	          <button class="nextButton navButton" disabled role="button" id="btnNext" onclick="next()">Next</button>
+	          <button class="nextButton" disabled id="btnNext" ng-click="message=false; next()">Next</button>
 	        </div>
 
 	       </div>
@@ -113,7 +113,7 @@
 	            <img class="cardImgTop" src="img/berlin2.jpg" alt="Card image" style="width:100%">
 	          </div>
 	          <h1>Congratulation!</h1>
-	          <p class="finalScore" id="finalScore"></p>
+	          <p class="finalScore" id="finalScore">{{ finalScore }}</p>
 	          <button id="btnNextGame" class="tryAgainButton" role="button" onclick="nextGame()">Next game</button>
 	          <button id="btnTryAgain" class="tryAgainButton" role="button" onclick="tryAgain()">Reset points and Try Again</button>
 	        </div>
@@ -121,7 +121,7 @@
 	    </div>
 	      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 right-part">
 	        <div id="pointText">Points</div>
-	        <div id="point"></div>
+	        <div id="point">{{ score }}</div>
 	      <div id="titlePart" ng-mouseover="title=true" ng-mouseout="title=false">
 	        <div id="myTitleIs">My title is </div>
 	        <div id="knightTitle"></div>
