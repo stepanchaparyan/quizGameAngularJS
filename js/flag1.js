@@ -222,8 +222,8 @@ flagApp.controller('flag1Ctrl', function($scope, $log) {
     }
 
     $scope.tryAgain = () => {
-        resetPoints();
-        resetDisabled();
+        $scope.resetPoints();
+        $scope.resetDisabled();
     }
 
     $scope.start = (continent) => {

@@ -20,7 +20,7 @@
 	            <div class="cardBody">
 	              <h4 class="cardTitle">Capitals</h4>
 	              <div class="cardContinent">Asia</div>
-	              <button class="buttonStart" id="asia" ng-click="card=true">Start</button>
+	              <button class="buttonStart" id="asia" ng-click="card=true; start('Asia')">Start</button>
 	            </div>
 	          </div>
 	        </div>
@@ -42,7 +42,7 @@
 	            <div class="cardBody" >
 	              <h4 class="cardTitle">Capitals</h4>
 	              <div class="cardContinent">Africa</div>
-	              <button class="buttonStart" id="africa" ng-click="card=true">Start</button>
+	              <button class="buttonStart" id="africa" ng-click="card=true; start('Africa')">Start</button>
 	            </div>
 	          </div>
 	        </div>
@@ -53,7 +53,7 @@
 	            <div class="cardBody" >
 	              <h4 class="cardTitle">Capitals</h4>
 	              <div class="cardContinent">Americas</div>
-	              <button class="buttonStart" id="americas" ng-click="card=true">Start</button>
+	              <button class="buttonStart" id="americas" ng-click="card=true; start('Americas')">Start</button>
 	            </div>
 	          </div>
 	        </div>
@@ -64,7 +64,7 @@
 	            <div class="cardBody" >
 	              <h4 class="cardTitle">Capitals</h4>
 	              <div class="cardContinent">Oceania</div>
-	              <button class="buttonStart" id="oceania" ng-click="card=true">Start</button>
+	              <button class="buttonStart" id="oceania" ng-click="card=true; start('Oceania')">Start</button>
 	            </div>
 	          </div>
 	        </div>
@@ -75,7 +75,7 @@
 	            <div class="cardBody" >
 	              <h4 class="cardTitle">Capitals</h4>
 	              <div class="cardContinent">World</div>
-	              <button class="buttonStart" id="world" ng-click="card=true">Start</button>
+	              <button class="buttonStart" id="world" ng-click="card=true; start('World')">Start</button>
 	            </div>
 	          </div>
 	        </div>
@@ -136,7 +136,7 @@
 	        <div id="titles">4.&nbsp;&nbsp; Duke</div>
 	        <div id="titles">5.&nbsp;&nbsp; King</div>
 	      </div>
-	        <button id="restart" onclick="tryAgain()">Restart game</button>
+	        <button id="restart" ng-click="tryAgain()">Restart game</button>
 	      </div>
 
 	    </div>
