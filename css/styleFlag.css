@@ -35,13 +35,12 @@ nav {
 #userPicture {
   height: 30px;
   border-radius: 50%;
-  margin: 10px 20px 10px 20px; }
+  margin: 10px 20px 10px 10px; }
 
 #username {
   font-weight: bold;
   cursor: pointer;
-  font-size: 20px;
-  color: white; }
+  color: #083b54; }
 
 .active {
   color: #0d618a !important; }
@@ -56,7 +55,7 @@ footer {
   position: relative;
   bottom: 0;
   width: 84%;
-  height: 7vh;
+  height: 6vh;
   margin-left: 8%;
   margin-right: 8%; }
 
@@ -81,7 +80,7 @@ footer {
   text-align: center;
   position: relative;
   width: 84%;
-  height: 87vh;
+  height: 89vh;
   margin-left: 8%;
   margin-right: 8%;
   background-color: white;
@@ -212,15 +211,15 @@ p {
 .finalScore {
   background-color: #48B484;
   padding: 10px;
-  margin: 10px;
+  margin: 10px 30px 10px 30px;
   font-weight: bold;
   font-size: 20px;
-  border-radius: 10px; }
+  border-radius: 7px; }
 
 #btnTryAgain, #btnNextGame {
   background-color: #bfb291;
   border: none;
-  border-radius: 5px;
+  border-radius: 7px;
   width: 45%;
   outline: 0;
   height: 40px;
@@ -229,6 +228,18 @@ p {
 
 #btnTryAgain:hover, #btnNextGame:hover {
   background-color: #a89c7e; }
+
+#titleTextFlag1 {
+  background-color: #cee1e2;
+  font-size: 2em;
+  font-weight: bold;
+  color: #0d618a;
+  padding: 0.5em;
+  border-radius: 0 0 20px 20px; }
+
+hr {
+  border-color: #a6a6a6;
+  width: 80%; }
 
 /************************/
 #right, #wrong {

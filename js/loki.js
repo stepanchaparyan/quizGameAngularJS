@@ -39,56 +39,6 @@
  }
  });
 
- let addPoints = () => {
-   db.loadDatabase({}, function () {
-   info = db.getCollection('Info');
-   info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].CapitalPoints += score;
-   db.saveDatabase();
-   console.log("points " + info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].CapitalPoints);
-   });
- }
-
- let resetPoints = () => {
-   db.loadDatabase({}, function () {
-   info = db.getCollection('Info');
-   info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].CapitalPoints = 0;
-   db.saveDatabase();
-   });
- }
-
- let resetDisabled = () => {
-   db.loadDatabase({}, function () {
-   info = db.getCollection('Info');
-     info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].asia1 = "";
-     info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].asia2 = "";
-     info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].africa1 = "";
-     info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].africa2 = "";
-     info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].europe1 = "";
-     info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].europe2 = "";
-     info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].americas1 = "";
-     info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].americas2 = "";
-     info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].oceania1 = "";
-     info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].oceania2 = "";
-     info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].world1 = "";
-     info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].world2 = "";
-     info.update(info.data);
-     db.saveDatabase();
-   })
-   document.location.reload();
- }
-
- let tryAgain = () => {
-   resetPoints();
-   resetDisabled();
- }
-
- let nextGame = () => {
-   addPoints();
-   document.getElementById('point').innerHTML = info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].CapitalPoints;
-   setDisabledThisGame();
-   document.location.reload();
- }
-
 //signup//
  let addUser = () => {
    db.loadDatabase({}, function () {
@@ -137,28 +87,6 @@
      currentUserName: userName,
      currentUserNumber: userNumber
     });
-  db.saveDatabase();
-  })
- }
-
-let addDisabledCapital1 = (continent) => {
-  db.loadDatabase({}, function () {
-  info = db.getCollection('Info');
-  var user = info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].Name;
-    if (continent == "asia") {
-      info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].asia1 = "disabled";
-    } else if (continent == "africa") {
-      info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].africa1 = "disabled";
-    } else if (continent == "europe") {
-      info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].europe1 = "disabled";
-    } else if (continent == "oceania") {
-      info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].oceania1 = "disabled";
-    } else if (continent == "world") {
-      info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].world1 = "disabled";
-    } else if (continent == "americas") {
-      info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].americas1 = "disabled";
-    }
-    info.update(info.data);
   db.saveDatabase();
   })
  }

@@ -3,6 +3,10 @@ flagApp.controller('flag1Ctrl', function($scope, $log) {
   $scope.score = 0;
   $scope.questionNumber = 0;
 
+  $scope.onLoadFunction = () => {
+      $scope.checkDisabledInLoad();
+  }
+
   $scope.setQuestion = () => {
       $scope.randomNumberMain = Math.floor(Math.random() * Math.floor(2));
       $scope.randomNumberMain == 1 ? $scope.questionsRight() : $scope.questionsWrong();
@@ -32,7 +36,6 @@ flagApp.controller('flag1Ctrl', function($scope, $log) {
       $scope.countriesList = COUNTRIES;
     }
     $scope.randomNumber = Math.floor(Math.random() * $scope.countriesList.length-1) + 1;
-    $log.log("randomNumber is " + $scope.randomNumber);
     $scope.randomNumberExcluded = $scope.randomExcluded(0, $scope.countriesList.length-1, $scope.randomNumber);
   }
 
@@ -114,64 +117,122 @@ flagApp.controller('flag1Ctrl', function($scope, $log) {
       }
   }
 
-let setDisabledThisGame = () => {
-  if (countriesList == COUNTRIES_ASIA) {
-    addDisabledCapital1("asia");
-  } else if (countriesList == COUNTRIES_EUROPE) {
-    addDisabledCapital1("europe");
-  } else if (countriesList == COUNTRIES_AFRICA) {
-    addDisabledCapital1("africa");
-  } else if (countriesList == COUNTRIES_AMERICAS) {
-    addDisabledCapital1("americas");
-  } else if (countriesList == COUNTRIES_OCEANIA) {
-    addDisabledCapital1("oceania");
-  } else {
-    addDisabledCapital1("world");
+  $scope.setDisabledThisGame = () => {
+      if ($scope.countriesList == COUNTRIES_ASIA) {
+            $scope.addDisabledFlag1("asia");
+          } else if ($scope.countriesList == COUNTRIES_EUROPE) {
+            $scope.addDisabledFlag1("europe");
+          } else if ($scope.countriesList == COUNTRIES_AFRICA) {
+            $scope.addDisabledFlag1("africa");
+          } else if ($scope.countriesList == COUNTRIES_AMERICAS) {
+            $scope.addDisabledFlag1("americas");
+          } else if ($scope.countriesList == COUNTRIES_OCEANIA) {
+            $scope.addDisabledFlag1("oceania");
+          } else {
+            $scope.addDisabledFlag1("world");
+      }
+    }
+
+    $scope.addDisabledFlag1 = (continent) => {
+        db.loadDatabase({}, function () {
+        info = db.getCollection('Info');
+        var user = info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].Name;
+        if (continent == "asia") {
+          info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].asia1 = "disabled";
+        } else if (continent == "africa") {
+          info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].africa1 = "disabled";
+        } else if (continent == "europe") {
+          info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].europe1 = "disabled";
+        } else if (continent == "oceania") {
+          info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].oceania1 = "disabled";
+        } else if (continent == "world") {
+          info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].world1 = "disabled";
+        } else if (continent == "americas") {
+          info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].americas1 = "disabled";
+        }
+        info.update(info.data);
+        db.saveDatabase();
+        })
+    }
+
+
+    $scope.checkDisabledInLoad = () => {
+        if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].asia1 == "disabled") {
+            angular.element("#asia").attr("disabled", "disabled");
+        }
+        if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].europe1 == "disabled") {
+            angular.element("#europe").attr("disabled", "disabled");
+        }
+        if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].africa1 == "disabled") {
+            angular.element("#africa").attr("disabled", "disabled");
+        }
+        if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].americas1 == "disabled") {
+            angular.element("#americas").attr("disabled", "disabled");
+        }
+        if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].oceania1 == "disabled") {
+            angular.element("#oceania").attr("disabled", "disabled");
+        }
+        if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].world1 == "disabled") {
+            angular.element("#world").attr("disabled", "disabled");
+        }
+    }
+
+  $scope.nextGame = () => {
+      $scope.addPoints();
+      $scope.pointFromDB = info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].FlagPoints;
+      $scope.setDisabledThisGame();
+      document.location.reload();
   }
-}
 
-let checkDisabledInLoad = () => {
-    if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].asia1 == "disabled") {
-      document.getElementById("asia").setAttribute("disabled", "disabled");
-    }
-    if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].europe1 == "disabled") {
-      document.getElementById("europe").setAttribute("disabled", "disabled");
-    }
-    if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].africa1 == "disabled") {
-      document.getElementById("africa").setAttribute("disabled", "disabled");
-    }
-    if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].americas1 == "disabled") {
-      document.getElementById("americas").setAttribute("disabled", "disabled");
-    }
-    if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].oceania1 == "disabled") {
-      document.getElementById("oceania").setAttribute("disabled", "disabled");
-    }
-    if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].world1 == "disabled") {
-      document.getElementById("world").setAttribute("disabled", "disabled");
-    }
+  $scope.addPoints = () => {
+      db.loadDatabase({}, function () {
+      info = db.getCollection('Info');
+      info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].FlagPoints += $scope.score;
+      db.saveDatabase();
+      });
   }
 
-let checkTitleOnLoad = () => {
-  if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].asia1 == "disabled" &&
-      info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].europe1 == "disabled" &&
-      info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].africa1 == "disabled" &&
-      info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].americas1 == "disabled" &&
-      info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].oceania1 == "disabled" &&
-      info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].world1 == "disabled") {
-    document.getElementById("levelResult").removeAttribute("class");
-    document.getElementById("leftCard").removeAttribute("disabled");
-    document.getElementById("knightTitle").innerHTML = "Baron";
-  }
-}
+   $scope.resetPoints = () => {
+      db.loadDatabase({}, function () {
+        info = db.getCollection('Info');
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].FlagPoints = 0;
+        db.saveDatabase();
+      });
+    }
 
+    $scope.resetDisabled = () => {
+      db.loadDatabase({}, function () {
+        info = db.getCollection('Info');
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].asia1 = "";
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].asia2 = "";
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].africa1 = "";
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].africa2 = "";
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].europe1 = "";
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].europe2 = "";
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].americas1 = "";
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].americas2 = "";
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].oceania1 = "";
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].oceania2 = "";
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].world1 = "";
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].world2 = "";
+        info.update(info.data);
+        db.saveDatabase();
+      })
+      document.location.reload();
+    }
 
-  $scope.start = (continent) => {
-      $scope.setRandomNumbers(continent);
-      $scope.setQuestion();
-      $log.log("countriesList length is  " + $scope.countriesList.length);
-      $log.log("1-right, 0-wrong  --  " + $scope.randomNumberMain);
-      $scope.finalResult();
-  };
+    $scope.tryAgain = () => {
+        resetPoints();
+        resetDisabled();
+    }
 
+    $scope.start = (continent) => {
+        $scope.setRandomNumbers(continent);
+        $scope.setQuestion();
+        $log.log("countriesList length is  " + $scope.countriesList.length);
+        $log.log("1-right, 0-wrong  --  " + $scope.randomNumberMain);
+        $scope.result();
+        $scope.finalResult();
+      };
 
 });

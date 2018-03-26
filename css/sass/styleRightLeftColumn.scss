@@ -22,13 +22,18 @@ $leftPartBackgroundLightGrey: #f5f0e4;
 }
 
 #titlePart {
-  background-color: #eff4f9;
-  border-radius: 5px;
+  background-color: #faf8f2;
+}
 
+#myTitleIs {
+  color: #1072a1;
+  font-weight: bold;
+  font-size: 18px;
+  padding-top: 2em;
 }
 
 #knightTitle {
-  color: #0d618a;
+  color: orangered;
   font-weight: bold;
   font-size: 24px;
   padding-bottom: 1em;
@@ -40,35 +45,27 @@ $leftPartBackgroundLightGrey: #f5f0e4;
   border-radius: 5px;
 }
 
-#myTitleIs {
-  color: #1072a1;
-  font-weight: bold;
-  font-size: 14px;
-  padding-top: 2em;
-}
-
 #showAllTitles {
-  background-color: #c0b89b;
+  background-color: #faf8f2;
   padding-bottom: 10px;
   border-radius: 5px;
 }
 
+#listOfTitles {
+  background-color: #48B484;
+  color: #0d618a;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 0 10px 0;
+}
+
 #titles {
-  color: white;
+  color: #0d618a;
   font-size: 18px;
   font-weight: bold;
   text-align: left;
   margin-left: 20%;
   padding-top: 10px;
-}
-
-#listOfTitles {
-  background-color: #6f625c;
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-  padding: 10px 0 10px 0;
-  border-radius: 5px;
 }
 
 #restart {

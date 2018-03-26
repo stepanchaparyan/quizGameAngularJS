@@ -12,14 +12,22 @@
   <link rel="stylesheet" href="css/styleFlag.css">
   <link rel="stylesheet" href="css/styleRightLeftColumn.css">
   <script type="text/javascript" src="js/flag1.js"></script>
+  <script type="text/javascript" src="js/rightLeftColumn.js"></script>
+  <script type="text/javascript" src="js/navbar.js"></script>
+  <script type="text/javascript" src="src/lokijs.js"></script>
+  <script type="text/javascript" src="js/loki.js"></script>
+  <script type="text/javascript" src="src/countries_asia.js"></script>
   <script type="text/javascript" src="src/countries_europe.js"></script>
-
+  <script type="text/javascript" src="src/countries_africa.js"></script>
+  <script type="text/javascript" src="src/countries_americas.js"></script>
+  <script type="text/javascript" src="src/countries_oceania.js"></script>
+  <script type="text/javascript" src="src/countries.js"></script>
 
 </head>
 
 <body ng-app="flagCtrl">
 
-  <nav class="navbar">
+  <nav class="navbar" ng-controller="navCtrl" data-ng-init="onLoadFunction()">
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<a class="navbar-brand" onClick="window.location.reload()">Geography</a>
@@ -29,8 +37,8 @@
             <a class="navbar-brand" ui-sref="home()" ui-sref-active="active">Home</a>
             <a class="navbar-brand" ui-sref="flag1()" ui-sref-active="active">Flag 1</a>
             <a class="navbar-brand" ui-sref="flag2()" ui-sref-active="active">Flag 2</a>
-						<a class="navbar-brand"><span id="username"> </span></a>
 						<li><img id="userPicture" src="img/stepan.jpg" alt="Avatar"></li>
+            <a class="navbar-brand"><span id="username"> {{ username }} </span></a>
 						<a class="navbar-brand"><span class="glyphicon glyphicon-user"></span> Sign out</a>
 					</ul>
 				</div>

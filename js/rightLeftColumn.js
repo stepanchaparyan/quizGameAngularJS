@@ -1,15 +1,27 @@
-var userName = "userName";
-var userNumber = 0;
+flagApp.controller('rightLeftCtrl', function($scope, $log) {
+  $scope.onLoadFunction = () => {
+      $scope.pointFromDB = info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].FlagPoints;
+      $scope.checkTitleOnLoad();
+  }
 
-let loadFunction = () => {
-  document.getElementById('point').innerHTML = info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].CapitalPoints;
-  console.log("name " + currentUser.data[currentUser.data.length-1].currentUserName);
-  console.log("number " + currentUser.data[currentUser.data.length-1].currentUserNumber);
-  document.getElementById('username').innerHTML = currentUser.data[currentUser.data.length-1].currentUserName;
-  checkDisabledInLoad();
-  checkTitleOnLoad();
-}
 
+  $scope.knightTitle = "Knight";
+  $scope.checkTitleOnLoad = () => {
+    if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].asia1 == "disabled" &&
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].europe1 == "disabled" &&
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].africa1 == "disabled" &&
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].americas1 == "disabled" &&
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].oceania1 == "disabled" &&
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].world1 == "disabled") {
+          angular.element("#levelResult").removeAttr("disabled");
+          $scope.knightTitle = "Baron";
+      }
+    }
+
+  });
+
+
+/*
 $(document).ready(function(){
 $('.bxslider').bxSlider({
   auto: true,
@@ -22,11 +34,4 @@ $('.bxslider').bxSlider({
   controls: false
 });
 });
-
-let showAllTitles = () => {
-  document.getElementById('showAllTitles').classList.remove("hideDisplay");
-}
-
-let hideAllTitles = () => {
-  document.getElementById('showAllTitles').classList.add("hideDisplay");
-}
+*/
