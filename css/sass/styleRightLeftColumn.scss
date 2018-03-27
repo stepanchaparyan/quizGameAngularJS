@@ -12,6 +12,9 @@ $leftPartBackgroundLightGrey: #f5f0e4;
   font-weight: bold;
   color: orangered;
   margin: 10px;
+  border-radius: 90%;
+  background-color: white;
+  margin: 15% 30% 15% 30%;
 }
 
 #pointText {
@@ -85,8 +88,8 @@ $leftPartBackgroundLightGrey: #f5f0e4;
 
 #restart:hover {
   color: white;
-  background-color: #0d618a;
-  border-radius: 5px;
+  background-color: #48B484;
+  border-radius: 25px;
 }
 
 /***left-part***/

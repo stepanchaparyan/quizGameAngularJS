@@ -89,7 +89,7 @@
   })
  }
 
- let addDisabledCapital2 = (continent) => {
+ let addDisabledFlag2 = (continent) => {
    db.loadDatabase({}, function () {
    info = db.getCollection('Info');
    var user = info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].Name;

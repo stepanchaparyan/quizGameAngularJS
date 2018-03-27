@@ -155,7 +155,6 @@ flagApp.controller('flag1Ctrl', function($scope, $log) {
         })
     }
 
-
     $scope.checkDisabledInLoad = () => {
         if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].asia1 == "disabled") {
             angular.element("#asia").attr("disabled", "disabled");

@@ -1,303 +1,311 @@
+flagApp.controller('flag2Ctrl', function($scope, $log) {
+  $scope.countriesList;
+  $scope.score = 0;
+  $scope.questionNumber = 0;
 
-flagApp.controller('flag2Controller', function($scope) {
-  $scope.message = 'Contact us! JK. This is just a demo.';
-
-
-  var userName = "userName";
-  var userNumber = 0;
-
-  let loadFunction = () => {
-    document.getElementById('point').innerHTML = info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].CapitalPoints;
-    console.log("name " + currentUser.data[currentUser.data.length-1].currentUserName);
-    console.log("number " + currentUser.data[currentUser.data.length-1].currentUserNumber);
-    document.getElementById('username').innerHTML = currentUser.data[currentUser.data.length-1].currentUserName;
-    checkDisabledInLoad();
-    checkTitleOnLoad();
+  $scope.onLoadFunction = () => {
+      $scope.checkDisabledInLoad();
   }
 
-  $(document).ready(function(){
-  $('.bxslider').bxSlider({
-    auto: true,
-    stopAutoOnClick: true,
-    pager: true,
-    slideWidth: 600,
-    speed: 800,
-    randomStart: true,
-    responsive: true,
-    controls: false
-  });
-  });
+/*
+  $scope.setQuestion = () => {
+      $scope.randomNumberMain = Math.floor(Math.random() * Math.floor(2));
+      $scope.randomNumberMain == 1 ? $scope.questionsRight() : $scope.questionsWrong();
+  };
 
-  let showAllTitles = () => {
-    document.getElementById('showAllTitles').classList.remove("hideDisplay");
+  $scope.questionsRight = function () {
+      $scope.flag = $scope.countriesList[$scope.randomNumber].flag;
+      $scope.question = "This is the flag of " + $scope.countriesList[$scope.randomNumber].name;
+  };
+  $scope.questionsWrong = function () {
+      $scope.flag = $scope.countriesList[$scope.randomNumber].flag;
+      $scope.question = "This is the flag of " + $scope.countriesList[$scope.randomNumberExcluded].name;
+  };
+
+  //generate randum number Excluded question number
+  $scope.randomExcluded = (min, max, excluded) => {
+    let n = Math.floor(Math.random() * (max-min) + min);
+    if (n >= excluded) n++;
+    return n;
   }
 
-  let hideAllTitles = () => {
-    document.getElementById('showAllTitles').classList.add("hideDisplay");
+  $scope.testRight = () => {
+    $scope.randomNumberMain == 1 ? ($scope.setNewCSS("green"), $scope.score += 1, $scope.result()) : ($scope.setNewCSS("red"), $scope.addRightAnswer());
+    $scope.changeDisabled();
+    angular.element('#btnNext').focus();
   }
 
-
-
-
-
-// variables for question number and score
-let questionNumber = 0;
-let score = 0;
-let randomNumberMain;
-let randomNumber;
-let randomNumberExcluded;
-let countriesList;
-var randomNumberBetween1_4;
-var randomNumberExcluded1;
-var randomNumberExcluded2;
-var randomNumberExcluded3;
-var randomNumberCountriesLengthExcluded1;
-var randomNumberCountriesLengthExcluded2;
-var randomNumberCountriesLengthExcluded3;
-
-//function for hide first card and show question cards
-let hideAndShow = () => {
-  document.getElementById('mainCards').classList.add("hideDisplay");
-  document.getElementById('quizResults').classList.remove("hideDisplay");
-  document.getElementById('resultMessage').classList.add("hideDisplay");
-}
-
-//generate and print right or wrong question
-let questionsMain = () => {
-  question();
-  setRandomNumbersBetween1_4();
-  setRandomNumbersCountriesLength();
-  getRandumAnswer();
-}
-
-//print question
-let question = () => document.getElementById("quizQuestions").innerHTML = "Which is the capital of " + countriesList[randomNumber].name;
-
-let getRandumAnswer = () => {
-  var answer = [];
-  answer[0] = countriesList[randomNumber].capital;
-  answer[1] = countriesList[randomNumberCountriesLengthExcluded1].capital;
-  answer[2] = countriesList[randomNumberCountriesLengthExcluded2].capital;
-  answer[3] = countriesList[randomNumberCountriesLengthExcluded3].capital;
-  document.getElementById("answer1").innerHTML = answer[randomNumberBetween1_4-1];
-  document.getElementById("answer2").innerHTML = answer[randomNumberExcluded1-1];
-  document.getElementById("answer3").innerHTML = answer[randomNumberExcluded2-1];
-  document.getElementById("answer4").innerHTML = answer[randomNumberExcluded3-1];
-}
-
-var setRandomNumbersBetween1_4 = () => {
-  function generateRandom1(min, max) {
-    var num = Math.floor(Math.random() * (max - min + 1)) + min;
-    return (num === randomNumberBetween1_4) ? generateRandom1(min, max) : num;
+  $scope.testWrong = () => {
+    $scope.randomNumberMain == 1 ? ($scope.setNewCSS("red")) : ($scope.setNewCSS("green"), $scope.addRightAnswer(), $scope.score += 1, $scope.result());
+    $scope.changeDisabled();
+    angular.element('#btnNext').focus();
   }
-  function generateRandom2(min, max) {
-    var num = Math.floor(Math.random() * (max - min + 1)) + min;
-    return (num === randomNumberBetween1_4 || num === randomNumberExcluded1) ? generateRandom2(min, max) : num;
-  }
-  function generateRandom3(min, max) {
-    var num = Math.floor(Math.random() * (max - min + 1)) + min;
-    return (num === randomNumberBetween1_4 || num === randomNumberExcluded1 || num === randomNumberExcluded2) ? generateRandom3(min, max) : num;
-  }
-  randomNumberBetween1_4 = Math.floor(Math.random() * 4) + 1;
-  randomNumberExcluded1 = generateRandom1(1, 4);
-  randomNumberExcluded2 = generateRandom2(1, 4);
-  randomNumberExcluded3 = generateRandom3(1, 4);
-}
+*/
 
-var setRandomNumbersCountriesLength = () => {
-  function generateRandom1(min, max) {
-    var num = Math.floor(Math.random() * (max - min + 1)) + min;
-    return (num === randomNumber) ? generateRandom1(min, max) : num;
-  }
-  function generateRandom2(min, max) {
-    var num = Math.floor(Math.random() * (max - min + 1)) + min;
-    return (num === randomNumber || num === randomNumberCountriesLengthExcluded1) ? generateRandom2(min, max) : num;
-  }
-  function generateRandom3(min, max) {
-    var num = Math.floor(Math.random() * (max - min + 1)) + min;
-    return (num === randomNumber || num === randomNumberCountriesLengthExcluded1 || num === randomNumberCountriesLengthExcluded2) ? generateRandom3(min, max) : num;
-  }
-  randomNumberCountriesLengthExcluded1 = generateRandom1(1, countriesList.length-1);
-  randomNumberCountriesLengthExcluded2 = generateRandom2(1, countriesList.length-1);
-  randomNumberCountriesLengthExcluded3 = generateRandom3(1, countriesList.length-1);
-}
-
-let test = () => {
-  if (this.event.target.innerHTML == countriesList[randomNumber].capital) {
-    setNewCSS(this.event.target.id, "green");
-    score += 1;
-    result();
-    changeDisabled();
-    getFocus();
-  } else {
-    setNewCSS(this.event.target.id, "red");
-    addRightAnswer();
-    result();
-    changeDisabled();
-    getFocus();
-  }
-}
-
-//print Right answer
-let addRightAnswer = () => document.getElementById("resultMessage").innerHTML = "Right answer: " + countriesList[randomNumber].capital + " is the capital of " + countriesList[randomNumber].name;
-
-//list of functions/action for next button
-let next = () => {
-  questionNumber += 1;
-  document.getElementById('answer1').removeAttribute("class");
-  document.getElementById('answer2').removeAttribute("class");
-  document.getElementById('answer3').removeAttribute("class");
-  document.getElementById('answer4').removeAttribute("class");
-  document.getElementById('resultMessage').removeAttribute("class");
-  document.getElementById('resultMessage').setAttribute("class", "hideDisplay");
-  changeDisabled();
-  chooseContinent();
-}
-
-let getFocus = () => document.getElementById("btnNext").focus();
-
-//generate CSS for right or wrong answer
-let setNewCSS = (id, color) => {
-  if (color == "green") {
-    document.getElementById(id).setAttribute("class", "greenBorder");
-    document.getElementById('resultMessage').setAttribute("class", "greenBorder");
-    document.getElementById("resultMessage").innerHTML = "You are right";
-  } else if (color == "red") {
-    document.getElementById(id).setAttribute("class", "redBorder");
-    document.getElementById('resultMessage').setAttribute("class", "redBorder");
-    document.getElementById("resultMessage").innerHTML = "Sorry, but the question was right";
-  }
-}
-
-//change element from disabled to abled and vice versa
-let changeDisabled = () => {
-  document.getElementById('btnNext').disabled = !document.getElementById('btnNext').disabled;
-  document.getElementById('answer1').disabled = !document.getElementById('answer1').disabled;
-  document.getElementById('answer2').disabled = !document.getElementById('answer2').disabled;
-  document.getElementById('answer3').disabled = !document.getElementById('answer3').disabled;
-  document.getElementById('answer4').disabled = !document.getElementById('answer4').disabled;
-}
-
-//print score and question number
-let result = () => {
-  document.getElementById("resultStep").innerHTML = " Question: " + (questionNumber + 1) + " /20";
-  document.getElementById("resultScore").innerHTML = " Score: " + score + " /20";
-}
-
-let finalResult = () => {
-  let text;
-  if (questionNumber == 20) {
-    text = "Thanks you, you got " + score + " points";
-  document.getElementById("finalScore").innerHTML = text;
-  document.getElementById('main').classList.add("hideDisplay");
-  document.getElementById('feedbackPage').removeAttribute("class");
-  }
-}
-
-let setDisabledThisGame = () => {
-  if (countriesList == COUNTRIES_ASIA) {
-    addDisabledCapital2("asia");
-  } else if (countriesList == COUNTRIES_EUROPE) {
-    addDisabledCapital2("europe");
-  } else if (countriesList == COUNTRIES_AFRICA) {
-    addDisabledCapital2("africa");
-  } else if (countriesList == COUNTRIES_AMERICAS) {
-    addDisabledCapital2("americas");
-  } else if (countriesList == COUNTRIES_OCEANIA) {
-    addDisabledCapital2("oceania");
-  } else {
-    addDisabledCapital2("world");
-  }
-}
-
-let checkDisabledInLoad = () => {
-    console.log("len " + info.data.length);
-    if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].asia2 == "disabled") {
-      document.getElementById("asia").setAttribute("disabled", "disabled");
+    $scope.setRandomNumbers = (continent) => {
+        if(continent == "Asia") {
+          $scope.countriesList = COUNTRIES_ASIA;
+        } else if (continent == "Europe") {
+          $scope.countriesList = COUNTRIES_EUROPE;
+        } else if (continent == "Africa") {
+          $scope.countriesList = COUNTRIES_AFRICA;
+        } else if (continent == "Americas") {
+          $scope.countriesList = COUNTRIES_AMERICAS;
+        } else if (continent == "Oceania") {
+          $scope.countriesList = COUNTRIES_OCEANIA;
+        } else {
+          $scope.countriesList = COUNTRIES;
+        }
+        $scope.randomNumber = Math.floor(Math.random() * $scope.countriesList.length-1) + 1;
     }
-    if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].europe2 == "disabled") {
-      document.getElementById("europe").setAttribute("disabled", "disabled");
-    }
-    if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].africa2 == "disabled") {
-      document.getElementById("africa").setAttribute("disabled", "disabled");
-    }
-    if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].americas2 == "disabled") {
-      document.getElementById("americas").setAttribute("disabled", "disabled");
-    }
-    if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].oceania2 == "disabled") {
-      document.getElementById("oceania").setAttribute("disabled", "disabled");
-    }
-    if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].world2 == "disabled") {
-      document.getElementById("world").setAttribute("disabled", "disabled");
-    }
-}
 
-let checkTitleOnLoad = () => {
-  if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].asia1 == "disabled" &&
-      info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].europe1 == "disabled" &&
-      info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].africa1 == "disabled" &&
-      info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].americas1 == "disabled" &&
-      info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].oceania1 == "disabled" &&
-      info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].world1 == "disabled") {
-    document.getElementById("leftCard").removeAttribute("disabled");
-    document.getElementById("knightTitle").innerHTML = "Baron";
+    $scope.setQuestion = () => {
+        $scope.question();
+        $scope.setRandomNumbersBetween1_4();
+        $scope.setRandomNumbersCountriesLength();
+        $scope.getRandumAnswer();
+    }
+
+    $scope.question = () => $scope.question = "Which is the flag of " + $scope.countriesList[$scope.randomNumber].name;
+
+    $scope.getRandumAnswer = () => {
+        let answer = [];
+        answer[0] = countriesList[randomNumber].name;
+        answer[1] = countriesList[randomNumberCountriesLengthExcluded1].name;
+        answer[2] = countriesList[randomNumberCountriesLengthExcluded2].name;
+        answer[3] = countriesList[randomNumberCountriesLengthExcluded3].name;
+        $scope.answer1 = answer[randomNumberBetween1_4-1];
+        $scope.answer2 = answer[randomNumberExcluded1-1];
+        $scope.answer3 = answer[randomNumberExcluded2-1];
+        $scope.answer4 = answer[randomNumberExcluded3-1];
+    }
+
+    $scope.setRandomNumbersBetween1_4 = () => {
+        function generateRandom1(min, max) {
+            let num = Math.floor(Math.random() * (max - min + 1)) + min;
+            return (num === randomNumberBetween1_4) ? generateRandom1(min, max) : num;
+        }
+        function generateRandom2(min, max) {
+            let num = Math.floor(Math.random() * (max - min + 1)) + min;
+            return (num === randomNumberBetween1_4 || num === randomNumberExcluded1) ? generateRandom2(min, max) : num;
+        }
+        function generateRandom3(min, max) {
+            var num = Math.floor(Math.random() * (max - min + 1)) + min;
+            return (num === randomNumberBetween1_4 || num === randomNumberExcluded1 || num === randomNumberExcluded2) ? generateRandom3(min, max) : num;
+        }
+        randomNumberBetween1_4 = Math.floor(Math.random() * 4) + 1;
+        randomNumberExcluded1 = generateRandom1(1, 4);
+        randomNumberExcluded2 = generateRandom2(1, 4);
+        randomNumberExcluded3 = generateRandom3(1, 4);
+    }
+
+  var setRandomNumbersCountriesLength = () => {
+    function generateRandom1(min, max) {
+      var num = Math.floor(Math.random() * (max - min + 1)) + min;
+      return (num === randomNumber) ? generateRandom1(min, max) : num;
+    }
+    function generateRandom2(min, max) {
+      var num = Math.floor(Math.random() * (max - min + 1)) + min;
+      return (num === randomNumber || num === randomNumberCountriesLengthExcluded1) ? generateRandom2(min, max) : num;
+    }
+    function generateRandom3(min, max) {
+      var num = Math.floor(Math.random() * (max - min + 1)) + min;
+      return (num === randomNumber || num === randomNumberCountriesLengthExcluded1 || num === randomNumberCountriesLengthExcluded2) ? generateRandom3(min, max) : num;
+    }
+    randomNumberCountriesLengthExcluded1 = generateRandom1(1, countriesList.length-1);
+    randomNumberCountriesLengthExcluded2 = generateRandom2(1, countriesList.length-1);
+    randomNumberCountriesLengthExcluded3 = generateRandom3(1, countriesList.length-1);
   }
-  if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].asia2 == "disabled" &&
-      info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].europe2 == "disabled" &&
-      info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].africa2 == "disabled" &&
-      info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].americas2 == "disabled" &&
-      info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].oceania2 == "disabled" &&
-      info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].world2 == "disabled") {
-    document.getElementById("knightTitle").innerHTML = "Graf";
-    document.getElementById("levelResult").removeAttribute("class");
-    document.getElementById("nextLevel").innerHTML = "Thank you";
+
+  let test = () => {
+    if (this.event.target.innerHTML == countriesList[randomNumber].capital) {
+      setNewCSS(this.event.target.id, "green");
+      score += 1;
+      result();
+      changeDisabled();
+      getFocus();
+    } else {
+      setNewCSS(this.event.target.id, "red");
+      addRightAnswer();
+      result();
+      changeDisabled();
+      getFocus();
+    }
   }
-}
 
-//generateRandum numbers for question
-let setRandomNumbers = (continent) => {
-  if(continent == "Asia") {
-    countriesList = COUNTRIES_ASIA;
-  } else if (continent == "Europe") {
-    countriesList = COUNTRIES_EUROPE;
-  } else if (continent == "Africa") {
-    countriesList = COUNTRIES_AFRICA;
-  } else if (continent == "Americas") {
-    countriesList = COUNTRIES_AMERICAS;
-  } else if (continent == "Oceania") {
-    countriesList = COUNTRIES_OCEANIA;
-  } else {
-    countriesList = COUNTRIES;
+
+  $scope.classAnswerText = [];
+  $scope.setNewCSS = (color) => {
+    if (color == "green") {
+      $scope.classAnswerText.push('greenBorder');
+      $scope.answerText = "You are right";
+    } else if (color == "red") {
+      $scope.classAnswerText.push('redBorder');
+      $scope.answerText = "Sorry, but the question was right";
+    }
   }
-  randomNumber = Math.floor(Math.random() * countriesList.length-1) + 1;
-}
 
-let chooseContinent = () => {
-  if(countriesList == COUNTRIES_EUROPE) {
-    start("Europe");
-  } else if (countriesList == COUNTRIES_ASIA) {
-    start("Asia");
-  } else if (countriesList == COUNTRIES_AFRICA) {
-    start("Africa");
-  } else if (countriesList == COUNTRIES_AMERICAS) {
-    start("Americas");
-  } else if (countriesList == COUNTRIES_OCEANIA) {
-    start("Oceania");
-  } else {
-    start("World");
+  $scope.addRightAnswer = () => $scope.answerText = "Right answer: This is the flag of " + $scope.countriesList[$scope.randomNumber].name;
+
+  //print score and question number
+  $scope.result = () => {
+      $scope.resultStep = " Question: " + ($scope.questionNumber + 1) + " /20";
+      $scope.resultScore = " Score: " + $scope.score + " /20";
   }
-}
 
-let start = (continent) => {
-  setRandomNumbers(continent);
-  startAll();
-}
+  $scope.disabledNext = true;
+  $scope.changeDisabled = () => {
+      document.getElementById('btnNext').disabled = !document.getElementById('btnNext').disabled;
+      $scope.disabledButton = !$scope.disabledButton;
+  }
 
-let startAll = () => {
-  hideAndShow();
-  questionsMain();
-  result();
-  finalResult();
-}
+  //list of functions/action for next button
+  $scope.next = () => {
+      $scope.questionNumber += 1;
+      $scope.answerText = "";
+      $scope.classAnswerText.pop();
+      $scope.changeDisabled();
+      $scope.chooseContinent();
+  }
+
+  $scope.chooseContinent = () => {
+    if($scope.countriesList == COUNTRIES_EUROPE) {
+      $scope.start("Europe");
+    } else if ($scope.countriesList == COUNTRIES_ASIA) {
+      $scope.start("Asia");
+    } else if ($scope.countriesList == COUNTRIES_AFRICA) {
+      $scope.start("Africa");
+    } else if ($scope.countriesList == COUNTRIES_AMERICAS) {
+      $scope.start("Americas");
+    } else if ($scope.countriesList == COUNTRIES_OCEANIA) {
+      $scope.start("Oceania");
+    } else {
+      $scope.start("World");
+    }
+  }
+
+  $scope.finalResult = () => {
+      if ($scope.questionNumber == 5) {
+          let text = "Thank you, you got " + $scope.score + " points";
+          $scope.finalScore = text;
+          angular.element('#main').attr("class", "ng-hide");
+          angular.element("#feedbackPage").removeAttr("class");
+      }
+  }
+
+  $scope.setDisabledThisGame = () => {
+      if ($scope.countriesList == COUNTRIES_ASIA) {
+            $scope.addDisabledFlag2("asia");
+          } else if ($scope.countriesList == COUNTRIES_EUROPE) {
+            $scope.addDisabledFlag2("europe");
+          } else if ($scope.countriesList == COUNTRIES_AFRICA) {
+            $scope.addDisabledFlag2("africa");
+          } else if ($scope.countriesList == COUNTRIES_AMERICAS) {
+            $scope.addDisabledFlag2("americas");
+          } else if ($scope.countriesList == COUNTRIES_OCEANIA) {
+            $scope.addDisabledFlag2("oceania");
+          } else {
+            $scope.addDisabledFlag2("world");
+      }
+    }
+
+    $scope.addDisabledFlag1 = (continent) => {
+        db.loadDatabase({}, function () {
+        info = db.getCollection('Info');
+        var user = info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].Name;
+        if (continent == "asia") {
+          info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].asia1 = "disabled";
+        } else if (continent == "africa") {
+          info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].africa1 = "disabled";
+        } else if (continent == "europe") {
+          info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].europe1 = "disabled";
+        } else if (continent == "oceania") {
+          info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].oceania1 = "disabled";
+        } else if (continent == "world") {
+          info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].world1 = "disabled";
+        } else if (continent == "americas") {
+          info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].americas1 = "disabled";
+        }
+        info.update(info.data);
+        db.saveDatabase();
+        })
+    }
+
+    $scope.checkDisabledInLoad = () => {
+        if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].asia1 == "disabled") {
+            angular.element("#asia").attr("disabled", "disabled");
+        }
+        if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].europe1 == "disabled") {
+            angular.element("#europe").attr("disabled", "disabled");
+        }
+        if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].africa1 == "disabled") {
+            angular.element("#africa").attr("disabled", "disabled");
+        }
+        if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].americas1 == "disabled") {
+            angular.element("#americas").attr("disabled", "disabled");
+        }
+        if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].oceania1 == "disabled") {
+            angular.element("#oceania").attr("disabled", "disabled");
+        }
+        if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].world1 == "disabled") {
+            angular.element("#world").attr("disabled", "disabled");
+        }
+    }
+
+  $scope.nextGame = () => {
+      $scope.addPoints();
+      $scope.pointFromDB = info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].FlagPoints;
+      $scope.setDisabledThisGame();
+      document.location.reload();
+  }
+
+  $scope.addPoints = () => {
+      db.loadDatabase({}, function () {
+      info = db.getCollection('Info');
+      info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].FlagPoints += $scope.score;
+      db.saveDatabase();
+      });
+  }
+
+   $scope.resetPoints = () => {
+      db.loadDatabase({}, function () {
+        info = db.getCollection('Info');
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].FlagPoints = 0;
+        db.saveDatabase();
+      });
+    }
+
+    $scope.resetDisabled = () => {
+      db.loadDatabase({}, function () {
+        info = db.getCollection('Info');
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].asia1 = "";
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].asia2 = "";
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].africa1 = "";
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].africa2 = "";
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].europe1 = "";
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].europe2 = "";
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].americas1 = "";
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].americas2 = "";
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].oceania1 = "";
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].oceania2 = "";
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].world1 = "";
+        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].world2 = "";
+        info.update(info.data);
+        db.saveDatabase();
+      })
+      document.location.reload();
+    }
+
+    $scope.tryAgain = () => {
+        $scope.resetPoints();
+        $scope.resetDisabled();
+    }
+
+    $scope.start = (continent) => {
+        $scope.setRandomNumbers(continent);
+        $scope.setQuestion();
+        $scope.result();
+        $scope.finalResult();
+      };
 
 });
