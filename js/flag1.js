@@ -77,7 +77,7 @@ flagApp.controller('flag1Ctrl', function($scope, $log) {
       $scope.resultScore = " Score: " + $scope.score + " /20";
   }
 
-  //change element from disabled to abled and vice versa
+  $scope.disabledNext = true;
   $scope.changeDisabled = () => {
       document.getElementById('btnNext').disabled = !document.getElementById('btnNext').disabled;
       $scope.disabledButton = !$scope.disabledButton;
@@ -112,8 +112,8 @@ flagApp.controller('flag1Ctrl', function($scope, $log) {
       if ($scope.questionNumber == 5) {
           let text = "Thank you, you got " + $scope.score + " points";
           $scope.finalScore = text;
-          document.getElementById('main').classList.add("hideDisplay");
-          document.getElementById('feedbackPage').removeAttribute("class");
+          angular.element('#main').attr("class", "ng-hide");
+          angular.element("#feedbackPage").removeAttr("class");
       }
   }
 
@@ -229,8 +229,6 @@ flagApp.controller('flag1Ctrl', function($scope, $log) {
     $scope.start = (continent) => {
         $scope.setRandomNumbers(continent);
         $scope.setQuestion();
-        $log.log("countriesList length is  " + $scope.countriesList.length);
-        $log.log("1-right, 0-wrong  --  " + $scope.randomNumberMain);
         $scope.result();
         $scope.finalResult();
       };

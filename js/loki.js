@@ -7,8 +7,6 @@
  info = db.getCollection('Info');
  currentUser = db.addCollection('currentUser');
  currentUser = db.getCollection('currentUser');
- //info.removeDataOnly()
- //currentUser.removeDataOnly()
  if (info.data.length === 0 || info.data.length === null) {
    console.log("info.data.length =  " + info.data.length);
    info.insert({

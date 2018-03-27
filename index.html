@@ -16,12 +16,12 @@
   <script type="text/javascript" src="js/navbar.js"></script>
   <script type="text/javascript" src="src/lokijs.js"></script>
   <script type="text/javascript" src="js/loki.js"></script>
-  <script type="text/javascript" src="src/countries_asia.js"></script>
-  <script type="text/javascript" src="src/countries_europe.js"></script>
-  <script type="text/javascript" src="src/countries_africa.js"></script>
-  <script type="text/javascript" src="src/countries_americas.js"></script>
-  <script type="text/javascript" src="src/countries_oceania.js"></script>
-  <script type="text/javascript" src="src/countries.js"></script>
+  <script type="text/javascript" src="data/countries_asia.js"></script>
+  <script type="text/javascript" src="data/countries_europe.js"></script>
+  <script type="text/javascript" src="data/countries_africa.js"></script>
+  <script type="text/javascript" src="data/countries_americas.js"></script>
+  <script type="text/javascript" src="data/countries_oceania.js"></script>
+  <script type="text/javascript" src="data/countries.js"></script>
 
 </head>
 
@@ -34,12 +34,15 @@
 				</div>
 				<div class="collapse navbar-collapse" id="myNavbar">
 					<ul class="nav navbar-nav navbar-right">
-            <a class="navbar-brand" ui-sref="home()" ui-sref-active="active">Home</a>
-            <a class="navbar-brand" ui-sref="flag1()" ui-sref-active="active">Flag 1</a>
-            <a class="navbar-brand" ui-sref="flag2()" ui-sref-active="active">Flag 2</a>
-						<li><img id="userPicture" src="img/stepan.jpg" alt="Avatar"></li>
             <a class="navbar-brand"><span id="username"> {{ username }} </span></a>
+            <li><img id="userPicture" src="img/stepan.jpg" alt="Avatar"></li>
 						<a class="navbar-brand"><span class="glyphicon glyphicon-user"></span> Sign out</a>
+					</ul>
+          <ul class="nav navbar-nav">
+            <button class="navbar-brand buttonFlag" ui-sref="home()" ui-sref-active="active">Home</button>
+            <button class="navbar-brand buttonFlag" ui-sref="flag1()" ui-sref-active="active">Flag 1</button>
+            <button class="navbar-brand buttonFlag" id="buttonFlag2" disabled ui-sref="flag2()" ui-sref-active="active">Flag 2</button>
+            <button class="navbar-brand buttonFlag" id="buttonFlag3" disabled ui-sref="flag3()" ui-sref-active="active">Flag 3</button>
 					</ul>
 				</div>
 			</div>

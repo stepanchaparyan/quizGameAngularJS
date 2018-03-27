@@ -3,8 +3,7 @@
 	    <div class="row">
 
 	      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 left-part" ng-controller="rightLeftCtrl">
-	          <div class="info" onclick="window.location='index.html';">Main page</div>
-
+	          <div class="info" ui-sref="home()">Home page</div>
 	      </div>
 
 	    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 centerPart">
@@ -80,63 +79,63 @@
 	          </div>
 	        </div>
 
-	        <div class="levelResult hideDisplay" id="levelResult">
-	          <button id="nextLevel" onclick="window.location='indexCapital2.html';">Play next level</button>
-	        </div>
-
-	      </div>
+	      </div> <!-- end mainCards part-->
 
 	      <div id="quizResults" ng-show="card">
+						<div id="titleTextFlag1">Round 1 <br> Simple question with ternary answers</div>
+						<hr></hr>
+						<img ng-src="{{ flag }}" style="width:240px; height:160px; margin-top:15px; border-color:black; border-width:bold">
+						<div id="quizQuestions"> {{ question }} </div>
 
-					<div id="titleTextFlag1">Round 1 <br> Simple question with ternary answers</div>
-					<hr></hr>
-					<img ng-src="{{ flag }}" style="width:240px; height:160px; margin-top:15px; border-color:black; border-width:bold">
-					<div id="quizQuestions"> {{ question }} </div>
+	        	<div id="quizAnswers">
+	          		<button id="right" ng-class="classRightButton" ng-disabled="disabledButton" ng-click="message=true; testRight()">Right</button>
+	          		<button id="wrong" ng-class="classWrongButton" ng-disabled="disabledButton" ng-click="message=true; testWrong()">Wrong</button>
+	        	</div>
 
-	        <div id="quizAnswers">
-	          <button id="right" ng-class="classRightButton" ng-disabled="disabledButton" ng-click="message=true; testRight()">Right</button>
-	          <button id="wrong" ng-class="classWrongButton" ng-disabled="disabledButton" ng-click="message=true; testWrong()">Wrong</button>
-	        </div>
-
-	        <div id="resultMessage" ng-show="message" ng-class="classAnswerText"> {{ answerText }}</div>
-	        <div id="resultStepScore">
-	          <div id="resultStep">{{ resultStep }}</div>
-	          <div id="resultScore">{{ resultScore }}</div>
-	        </div>
-	        <div role="navigation" class="quizNav" id="quizNav">
-	          <button class="nextButton" disabled id="btnNext" ng-click="message=false; next()">Next</button>
-	        </div>
-
-	       </div>
+	        	<div id="resultMessage" ng-show="message" ng-class="classAnswerText"> {{ answerText }}</div>
+	        	<div id="resultStepScore">
+	          		<div id="resultStep">{{ resultStep }}</div>
+	          		<div id="resultScore">{{ resultScore }}</div>
+	        	</div>
+	        	<div role="navigation" class="quizNav" id="quizNav">
+	          		<button class="nextButton" disabled id="btnNext" ng-click="message=false; next()">Next</button>
+	        	</div>
 	      </div>
 
-	        <div class="feedbackPage hideDisplay" id="feedbackPage">
-	          <div id="feedbackImage">
-	            <img class="cardImgTop" src="img/berlin2.jpg" alt="Card image" style="width:100%">
-	          </div>
-	          <h1>Congratulation!</h1>
-	          <p class="finalScore" id="finalScore">{{ finalScore }}</p>
-	          <button id="btnNextGame" class="tryAgainButton" role="button" ng-click="nextGame()">Next game</button>
-	          <button id="btnTryAgain" class="tryAgainButton" role="button" ng-click="tryAgain()">Reset points and Try Again</button>
-	        </div>
+	      </div> <!-- end main part-->
 
-	    </div>
+	      <div class="feedbackPage ng-hide" id="feedbackPage">
+	        	<div id="feedbackImage">
+	          		<img class="cardImgTop" src="img/berlin2.jpg" alt="Card image" style="width:100%">
+	        	</div>
+	        	<h1>Congratulation!</h1>
+	        	<p class="finalScore" id="finalScore">{{ finalScore }}</p>
+	        	<button id="btnNextGame" class="tryAgainButton" role="button" ng-click="nextGame()">Next game</button>
+	        	<button id="btnTryAgain" class="tryAgainButton" role="button" ng-click="tryAgain()">Reset points and Try Again</button>
+				</div>
+
+				<div class="ng-hide" id="levelResult">
+						<button id="nextLevel" ui-sref="flag2">Play next level</button>
+				</div>
+
+	    </div> <!-- end center part-->
+
 	      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 right-part" ng-controller="rightLeftCtrl" data-ng-init="onLoadFunction()">
-	        <div id="pointText">Points</div>
-					<div id="point"> {{ pointFromDB }} </div>
-	      <div id="titlePart" ng-mouseover="title=true" ng-mouseout="title=false">
-	        <div id="myTitleIs">My title is </div>
-	        <div id="knightTitle"> {{ knightTitle }} </div>
-	      </div>
-	      <div id="showAllTitles" ng-show="title">
-	        <div id="listOfTitles">List of titles</div>
-	        <div id="titles">1.&nbsp;&nbsp; Knight</div>
-	        <div id="titles">2.&nbsp;&nbsp; Baron</div>
-	        <div id="titles">3.&nbsp;&nbsp; Graf</div>
-	        <div id="titles">4.&nbsp;&nbsp; Duke</div>
-	        <div id="titles">5.&nbsp;&nbsp; King</div>
-	      </div>
-	        <button id="restart" ng-click="tryAgain()">Restart game</button>
+	        	<div id="pointText">Points</div>
+						<div id="point"> {{ pointFromDB }} </div>
+	      		<div id="titlePart" ng-mouseover="title=true" ng-mouseout="title=false">
+	        			<div id="myTitleIs">My title is </div>
+	        			<div id="knightTitle"> {{ knightTitle }} </div>
+	      		</div>
+	      		<div id="showAllTitles" ng-show="title">
+	        			<div id="listOfTitles">List of titles</div>
+	        			<div class="titles" id="Knight">1.&nbsp;&nbsp; Knight</div>
+	        			<div class="titles" id="Baron">2.&nbsp;&nbsp; Baron</div>
+	        			<div class="titles">3.&nbsp;&nbsp; Graf</div>
+	        			<div class="titles">4.&nbsp;&nbsp; Duke</div>
+	        			<div class="titles">5.&nbsp;&nbsp; King</div>
+	      		</div>
+	        	<button id="restart" ng-click="tryAgain()">Restart game</button>
 	      </div>
 
 	    </div>
@@ -145,7 +144,5 @@
 	  <span class="col-sm-6 footerLeft">Chaparyan</span>
 	  <span class="col-sm-6 footerRight">Geography Quiz<span>
 	</footer>
-
-
 
 </div>

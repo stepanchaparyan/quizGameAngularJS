@@ -59,13 +59,17 @@ $leftPartBackgroundLightGrey: #f5f0e4;
   padding: 10px 0 10px 0;
 }
 
-#titles {
+.titles {
   color: #0d618a;
   font-size: 18px;
   font-weight: bold;
   text-align: left;
   margin-left: 20%;
   padding-top: 10px;
+}
+
+#Knight {
+  color: orangered;
 }
 
 #restart {

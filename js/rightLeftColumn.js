@@ -4,7 +4,6 @@ flagApp.controller('rightLeftCtrl', function($scope, $log) {
       $scope.checkTitleOnLoad();
   }
 
-
   $scope.knightTitle = "Knight";
   $scope.checkTitleOnLoad = () => {
     if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].asia1 == "disabled" &&
@@ -13,8 +12,12 @@ flagApp.controller('rightLeftCtrl', function($scope, $log) {
         info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].americas1 == "disabled" &&
         info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].oceania1 == "disabled" &&
         info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].world1 == "disabled") {
-          angular.element("#levelResult").removeAttr("disabled");
+          angular.element("#levelResult").removeAttr("class");
+          angular.element('#buttonFlag2').removeAttr("disabled");
           $scope.knightTitle = "Baron";
+          angular.element('#Baron').css('color', 'orangered');
+          angular.element('#Knight').css('color', '#0d618a');
+
       }
     }
 
