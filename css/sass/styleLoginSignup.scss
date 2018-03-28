@@ -2,7 +2,7 @@ $transparent: rgba(0,0,0,0.2);
 $lightGrey: #dddddd;
 $midBlue: #1c8adb;
 
-#loginPage, #signupPage {
+#loginPage {
   margin: 0;
   padding: 0;
   background-size: cover;
@@ -26,21 +26,15 @@ $midBlue: #1c8adb;
 }
 
 .signupBox {
-  width: 320px;
-  height: 76%;
   background: $transparent;
   color: white;
-  top: 56%;
-  left: 82%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  box-sizing: border-box;
   padding: 50px 30px;
-  box-shadow: 5px 4px 43px #000;
+  box-shadow: 3px 4px 23px #000;
   border-radius: 5px;
+  margin: 12% 20% 0 20%;
 }
+
 .avatar {
-  width: 100px;
   height: 100px;
   border-radius: 50%;
   position: absolute;
@@ -49,7 +43,6 @@ $midBlue: #1c8adb;
 }
 
 #loginPage h1, #signupPage h1 {
-  margin: 0;
   padding: 0 0 20px;
   text-align: center;
   font-size: 22px;
@@ -63,35 +56,22 @@ $midBlue: #1c8adb;
 
 .loginBox input, .signupBox input {
   width: 100%;
-  margin-bottom: 20px;
-}
-
-.loginBox input[type="text"], input[type="password"], .signupBox input[type="text"], input[type="password"] {
-  border: none;
-  border-bottom: 1px solid white;
-  background: transparent;
-  outline: none;
-  height: 40px;
-  color: white;
-  font-size: 16px;
+  margin-bottom: 5px;
 }
 
 #loginButton, #signupButton {
-  width: 100%;
-  margin-bottom: 20px;
+  width: 95%;
+  margin-top: 20px;
   border: none;
-  outline: none;
   height: 40px;
   background: $midBlue;
-  color: white;
   font-size: 18px;
   border-radius: 20px;
   font-weight: bold;
+  outline: none;
 }
 
 #loginButton:hover, #signupButton:hover {
-  width: 100%;
-  margin-bottom: 20px;
   cursor: pointer;
   background: lightblue;
   color: black;
@@ -114,4 +94,25 @@ $midBlue: #1c8adb;
 
 .loginBox a:hover, .signupBox a:hover {
   color: lightblue;
+}
+
+
+label {
+  color: #555;
+  font-weight: bold;
+  display: block;
+  text-align: left;
+  margin-top: 15px;
+}
+
+.msg {
+  color: red;
+  font-weight: bold;
+  margin: 5px 0 30px 0;
+  text-align: left;
+}
+
+#signupText {
+  font-size: 1.5em;
+  margin: 5px;;
 }

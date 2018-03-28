@@ -1,4 +1,4 @@
-var flagApp = angular.module('flagCtrl', ['ui.router']);
+var flagApp = angular.module('flagCtrl', ['ui.router', 'ngMessages']);
 
 flagApp.config(function($stateProvider, $urlRouterProvider) {
 	$stateProvider
