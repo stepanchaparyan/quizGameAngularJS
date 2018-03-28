@@ -1,4 +1,4 @@
-function login() {
+function login() { 
     let loginPage = document.getElementById("loginPage");
     let signupPage = document.getElementById("signupPage");
     let titleText = document.getElementById("titleText");
