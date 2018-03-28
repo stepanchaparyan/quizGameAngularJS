@@ -2,6 +2,13 @@
 <html >
 <head>
 <!--  <base href="/" /> -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flags - Geography</title>
+  <meta name="description" content="web-page about geography, countries, capitals, flags">
+  <meta name="keywords" content="game, geography, country, capital, flag, regions">
+  <link href="img/favicon.ico" rel="shortcut icon">
+
   <script type="text/javascript" src="src/jquery.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
@@ -11,7 +18,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/styleFlag.css">
   <link rel="stylesheet" href="css/styleRightLeftColumn.css">
+  <script type="text/javascript" src="js/home.js"></script>
   <script type="text/javascript" src="js/flag1.js"></script>
+  <script type="text/javascript" src="js/flag2.js"></script>
+  <script type="text/javascript" src="js/flag3.js"></script>
   <script type="text/javascript" src="js/rightLeftColumn.js"></script>
   <script type="text/javascript" src="js/navbar.js"></script>
   <script type="text/javascript" src="src/lokijs.js"></script>
@@ -41,7 +51,7 @@
           <ul class="nav navbar-nav">
             <button class="navbar-brand buttonFlag" ui-sref="home()" ui-sref-active="active">Home</button>
             <button class="navbar-brand buttonFlag" ui-sref="flag1()" ui-sref-active="active">Flag 1</button>
-            <button class="navbar-brand buttonFlag" id="buttonFlag2" ui-sref="flag2()" ui-sref-active="active">Flag 2</button>
+            <button class="navbar-brand buttonFlag" id="buttonFlag2" disabled ui-sref="flag2()" ui-sref-active="active">Flag 2</button>
             <button class="navbar-brand buttonFlag" id="buttonFlag3" disabled ui-sref="flag3()" ui-sref-active="active">Flag 3</button>
 					</ul>
 				</div>

@@ -157,22 +157,22 @@ flagApp.controller('flag1Ctrl', function($scope, $log) {
 
     $scope.checkDisabledInLoad = () => {
         if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].asia1 == "disabled") {
-            angular.element("#asia").attr("disabled", "disabled");
+            angular.element("#asia1").attr("disabled", "disabled");
         }
         if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].europe1 == "disabled") {
-            angular.element("#europe").attr("disabled", "disabled");
+            angular.element("#europe1").attr("disabled", "disabled");
         }
         if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].africa1 == "disabled") {
-            angular.element("#africa").attr("disabled", "disabled");
+            angular.element("#africa1").attr("disabled", "disabled");
         }
         if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].americas1 == "disabled") {
-            angular.element("#americas").attr("disabled", "disabled");
+            angular.element("#americas1").attr("disabled", "disabled");
         }
         if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].oceania1 == "disabled") {
-            angular.element("#oceania").attr("disabled", "disabled");
+            angular.element("#oceania1").attr("disabled", "disabled");
         }
         if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].world1 == "disabled") {
-            angular.element("#world").attr("disabled", "disabled");
+            angular.element("#world1").attr("disabled", "disabled");
         }
     }
 

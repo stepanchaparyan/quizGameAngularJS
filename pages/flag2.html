@@ -16,54 +16,54 @@
 	        <div class="cardCenter col-lg-4 col-md-4 col-sm-6 col-xs-6" id="start-page-asia">
 	          	<div class="cardStyle" style="border-color:green; background-color:#a0e2a0">
 	            		<img class="cardImgTop" src="img/asia.jpg" alt="Card image" >
-	              	<h4 class="cardTitle">Capitals</h4>
+	              	<h4 class="cardTitle">Flags 2</h4>
 	              	<div class="cardContinent">Asia</div>
-	              	<button class="buttonStart" id="asia" ng-click="card=true; start('Asia')">Start</button>
+	              	<button class="buttonStart" id="asia2" ng-click="card=true; start('Asia')">Start</button>
 	          	</div>
 	        </div>
 
 	        <div class="cardCenter col-lg-4 col-md-4 col-sm-6 col-xs-6" id="startPageEurope">
 	          	<div class="cardStyle" style="border-color:green; background-color:#a0e2a0">
 	            		<img class="cardImgTop" src="img/europe.png" alt="Card image" >
-	            		<h4 class="cardTitle">Capitals</h4>
+	            		<h4 class="cardTitle">Flags 2</h4>
 	              	<div class="cardContinent">Europe</div>
-	              	<button class="buttonStart" id="europe" ng-click="card=true; start('Europe')">Start</button>
+	              	<button class="buttonStart" id="europe2" ng-click="card=true; start('Europe')">Start</button>
 	            </div>
 	        </div>
 
 	        <div class="cardCenter col-lg-4 col-md-4 col-sm-6 col-xs-6" id="startPageAfrica">
 	          	<div class="cardStyle" style="border-color:green; background-color:#a0e2a0">
 	            		<img class="cardImgTop" src="img/africa.jpg" alt="Card image" >
-              		<h4 class="cardTitle">Capitals</h4>
+              		<h4 class="cardTitle">Flags 2</h4>
               		<div class="cardContinent">Africa</div>
-              		<button class="buttonStart" id="africa" ng-click="card=true; start('Africa')">Start</button>
+              		<button class="buttonStart" id="africa2" ng-click="card=true; start('Africa')">Start</button>
 	          	</div>
 	        </div>
 
 	        <div class="cardCenter col-lg-4 col-md-4 col-sm-6 col-xs-6" id="startPageAmericas">
 	          	<div class="cardStyle" style="border-color:green; background-color:#a0e2a0">
 	            		<img class="cardImgTop" src="img/americas.jpg" alt="Card image" >
-	              	<h4 class="cardTitle">Capitals</h4>
+	              	<h4 class="cardTitle">Flags 2</h4>
 	              	<div class="cardContinent">Americas</div>
-	              	<button class="buttonStart" id="americas" ng-click="card=true; start('Americas')">Start</button>
+	              	<button class="buttonStart" id="americas2" ng-click="card=true; start('Americas')">Start</button>
 	          	</div>
 	        </div>
 
 	        <div class="cardCenter col-lg-4 col-md-4 col-sm-6 col-xs-6" id="startPageOceania">
 	          	<div class="cardStyle" style="border-color:green; background-color:#a0e2a0">
 	            		<img class="cardImgTop" src="img/oceania.jpg" alt="Card image" >
-	              	<h4 class="cardTitle">Capitals</h4>
+	              	<h4 class="cardTitle">Flags 2</h4>
 	              	<div class="cardContinent">Oceania</div>
-	              	<button class="buttonStart" id="oceania" ng-click="card=true; start('Oceania')">Start</button>
+	              	<button class="buttonStart" id="oceania2" ng-click="card=true; start('Oceania')">Start</button>
 	            </div>
 	        </div>
 
 	        <div class="cardCenter col-lg-4 col-md-4 col-sm-6 col-xs-6" id="startPageWorld">
 	          	<div class="cardStyle" style="border-color:green; background-color:#a0e2a0">
 	            		<img class="cardImgTop" src="img/world.jpg" alt="Card image" >
-	              	<h4 class="cardTitle">Capitals</h4>
+	              	<h4 class="cardTitle">Flags 2</h4>
 	              	<div class="cardContinent">World</div>
-	              	<button class="buttonStart" id="world" ng-click="card=true; start('World')">Start</button>
+	              	<button class="buttonStart" id="world2" ng-click="card=true; start('World')">Start</button>
 	          	</div>
 	        </div>
 
@@ -73,11 +73,11 @@
 						<div id="titleTextFlag1"><span id="roundNumber">Round 2</span> <br> Questions with four answers</div>
 						<hr></hr>
 						<img ng-src="{{ flag }}" id="flagImage">
-						<div id="quizQuestions"> {{ question }} </div>
-	          <button id="answer1" ng-disabled="disabledButton" ng-click="message=true; testRight()">{{answer1}}</button>
-	          <button id="answer2" ng-disabled="disabledButton" ng-click="message=true; testWrong()">{{answer2}}</button>
-						<button id="answer3" ng-disabled="disabledButton" ng-click="message=true; testRight()">{{answer3}}</button>
-						<button id="answer4" ng-disabled="disabledButton" ng-click="message=true; testRight()">{{answer4}}</button>
+						<div id="quizQuestions"> {{ questionText }} </div>
+	          <button id="answer1" ng-disabled="disabledButton" ng-click="message=true; test($event)">{{answer1}}</button>
+	          <button id="answer2" ng-disabled="disabledButton" ng-click="message=true; test($event)">{{answer2}}</button>
+						<button id="answer3" ng-disabled="disabledButton" ng-click="message=true; test($event)">{{answer3}}</button>
+						<button id="answer4" ng-disabled="disabledButton" ng-click="message=true; test($event)">{{answer4}}</button>
 						<div id="resultMessage" ng-show="message" ng-class="classAnswerText"> {{ answerText }}</div>
         		<div id="resultStep">{{ resultStep }}</div>
         		<div id="resultScore">{{ resultScore }}</div>
@@ -96,7 +96,7 @@
 	        	<button id="btnTryAgain" ng-click="tryAgain()">Reset points and Try Again</button>
 				</div>
 
-				<div class="ng-hide" id="levelResult">
+				<div class="ng-hide" id="levelResultFlag2">
 						<button id="nextLevel" ui-sref="flag3">Play next level</button>
 				</div>
 
@@ -107,13 +107,13 @@
 						<div id="point"> {{ pointFromDB }} </div>
 	      		<div id="titlePart" ng-mouseover="title=true" ng-mouseout="title=false">
 	        			<div id="myTitleIs">My title is </div>
-	        			<div id="baronTitle"> {{ baronTitle }} </div>
+	        			<div id="knightTitle"> {{ knightTitle }} </div>
 	      		</div>
 	      		<div id="showAllTitles" ng-show="title">
 	        			<div id="listOfTitles">List of titles</div>
-	        			<div class="titles" id="Knight">1.&nbsp;&nbsp; Knight</div>
-	        			<div class="titles" id="Baron">2.&nbsp;&nbsp; Baron</div>
-	        			<div class="titles" id="Graf">3.&nbsp;&nbsp; Graf</div>
+	        			<div class="titles" id="knight">1.&nbsp;&nbsp; Knight</div>
+	        			<div class="titles" id="baron">2.&nbsp;&nbsp; Baron</div>
+	        			<div class="titles" id="graf">3.&nbsp;&nbsp; Graf</div>
 	        			<div class="titles">4.&nbsp;&nbsp; Duke</div>
 	        			<div class="titles">5.&nbsp;&nbsp; King</div>
 	      		</div>
