@@ -1,62 +1,26 @@
 $transparent: rgba(0,0,0,0.2);
 $lightGrey: #dddddd;
 $midBlue: #1c8adb;
+$mainBlue: #0d618a;
+$backgroundGreen: #48B484;
 
-#loginPage {
-  margin: 0;
-  padding: 0;
-  background-size: cover;
-  background-position: center;
-  font-family: sans-serif;
-}
+//*** Login and Signup part  ***//
 
-.loginBox {
-  width: 320px;
-  height: 60%;
-  background: $transparent;
-  color: #fff;
-  top: 50%;
-  left: 82%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  box-sizing: border-box;
-  padding: 70px 30px;
-  box-shadow: 5px 4px 43px #000;
-  border-radius: 5px;
-}
-
-.signupBox {
+#signupBox, #loginBox {
   background: $transparent;
   color: white;
   padding: 50px 30px;
   box-shadow: 3px 4px 23px #000;
   border-radius: 5px;
-  margin: 12% 20% 0 20%;
+  margin-top: 30%;
 }
 
 .avatar {
   height: 100px;
   border-radius: 50%;
   position: absolute;
-  top: -50px;
+  top: 50px;
   left: calc(50% - 50px);
-}
-
-#loginPage h1, #signupPage h1 {
-  padding: 0 0 20px;
-  text-align: center;
-  font-size: 22px;
-}
-
-.loginBox p, .signupBox p {
-  margin: 0;
-  padding: 0;
-  font-weight: bold;
-}
-
-.loginBox input, .signupBox input {
-  width: 100%;
-  margin-bottom: 5px;
 }
 
 #loginButton, #signupButton {
@@ -64,7 +28,7 @@ $midBlue: #1c8adb;
   margin-top: 20px;
   border: none;
   height: 40px;
-  background: $midBlue;
+  background: #0d618a;
   font-size: 18px;
   border-radius: 20px;
   font-weight: bold;
@@ -73,29 +37,8 @@ $midBlue: #1c8adb;
 
 #loginButton:hover, #signupButton:hover {
   cursor: pointer;
-  background: lightblue;
-  color: black;
+  background: $midBlue;
 }
-
-#signupButton:disabled, #loginButton:disabled {
-    background: $lightGrey;
-}
-
-#signupButton:disabled:hover, #loginButton:disabled:hover {
-    cursor: not-allowed;
-    background: $lightGrey;
-}
-
-.loginBox a, .signupBox a {
-  text-decoration: none;
-  font-size: 14px;
-  color: white;
-}
-
-.loginBox a:hover, .signupBox a:hover {
-  color: lightblue;
-}
-
 
 label {
   color: #555;
@@ -112,7 +55,47 @@ label {
   text-align: left;
 }
 
-#signupText {
+#signupText, #loginText {
   font-size: 1.5em;
   margin: 5px;;
 }
+
+//*** End login and signup part ***//
+
+//*** Jumbotron part  ***//
+
+.jumbotron {
+  margin: 10% 0% 2% 0%;
+}
+
+#welcome {
+  color: $mainBlue;
+  font-weight: bold;
+}
+
+#welcomeText {
+  color: $backgroundGreen;
+  font-size: 1.5em;
+  margin-top: 5%;
+}
+
+.chooseName {
+  width: 20%;
+  margin: 20px;
+  border: none;
+  height: 50px;
+  background: $mainBlue;
+  color: white;
+  font-size: 18px;
+  border-radius: 15px;
+  font-weight: bold;
+  outline: none;
+}
+
+#chooseName {
+  font-size: 2em;
+  color: $mainBlue;
+  font-weight: bold;
+}
+
+//*** End Jumbotron ***//

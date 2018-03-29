@@ -1,59 +1,24 @@
-#loginPage {
-  margin: 0;
-  padding: 0;
-  background-size: cover;
-  background-position: center;
-  font-family: sans-serif; }
-
-.loginBox {
-  width: 320px;
-  height: 60%;
-  background: rgba(0, 0, 0, 0.2);
-  color: #fff;
-  top: 50%;
-  left: 82%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  box-sizing: border-box;
-  padding: 70px 30px;
-  box-shadow: 5px 4px 43px #000;
-  border-radius: 5px; }
-
-.signupBox {
+#signupBox, #loginBox {
   background: rgba(0, 0, 0, 0.2);
   color: white;
   padding: 50px 30px;
   box-shadow: 3px 4px 23px #000;
   border-radius: 5px;
-  margin: 12% 20% 0 20%; }
+  margin-top: 30%; }
 
 .avatar {
   height: 100px;
   border-radius: 50%;
   position: absolute;
-  top: -50px;
+  top: 50px;
   left: calc(50% - 50px); }
-
-#loginPage h1, #signupPage h1 {
-  padding: 0 0 20px;
-  text-align: center;
-  font-size: 22px; }
-
-.loginBox p, .signupBox p {
-  margin: 0;
-  padding: 0;
-  font-weight: bold; }
-
-.loginBox input, .signupBox input {
-  width: 100%;
-  margin-bottom: 5px; }
 
 #loginButton, #signupButton {
   width: 95%;
   margin-top: 20px;
   border: none;
   height: 40px;
-  background: #1c8adb;
+  background: #0d618a;
   font-size: 18px;
   border-radius: 20px;
   font-weight: bold;
@@ -61,23 +26,7 @@
 
 #loginButton:hover, #signupButton:hover {
   cursor: pointer;
-  background: lightblue;
-  color: black; }
-
-#signupButton:disabled, #loginButton:disabled {
-  background: #dddddd; }
-
-#signupButton:disabled:hover, #loginButton:disabled:hover {
-  cursor: not-allowed;
-  background: #dddddd; }
-
-.loginBox a, .signupBox a {
-  text-decoration: none;
-  font-size: 14px;
-  color: white; }
-
-.loginBox a:hover, .signupBox a:hover {
-  color: lightblue; }
+  background: #1c8adb; }
 
 label {
   color: #555;
@@ -92,8 +41,37 @@ label {
   margin: 5px 0 30px 0;
   text-align: left; }
 
-#signupText {
+#signupText, #loginText {
   font-size: 1.5em;
   margin: 5px; }
+
+.jumbotron {
+  margin: 10% 0% 2% 0%; }
+
+#welcome {
+  color: #0d618a;
+  font-weight: bold; }
+
+#welcomeText {
+  color: #48B484;
+  font-size: 1.5em;
+  margin-top: 5%; }
+
+.chooseName {
+  width: 20%;
+  margin: 20px;
+  border: none;
+  height: 50px;
+  background: #0d618a;
+  color: white;
+  font-size: 18px;
+  border-radius: 15px;
+  font-weight: bold;
+  outline: none; }
+
+#chooseName {
+  font-size: 2em;
+  color: #0d618a;
+  font-weight: bold; }
 
 /*# sourceMappingURL=styleLoginSignup.css.map */

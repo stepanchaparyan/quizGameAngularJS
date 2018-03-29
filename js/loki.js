@@ -87,3 +87,12 @@
   db.saveDatabase();
   })
  }
+
+ let printUsers = () => {
+ for (var i = 0; i < info.data.length; i++) {
+   console.log(info.data[i].Name);
+   console.log(info.data[i].Password);
+ }
+ };
+
+printUsers();
