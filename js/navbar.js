@@ -1,6 +1,6 @@
 flagApp.controller('navCtrl', function($scope, $log) {
     $scope.onLoadFunction = () => {
-        username = currentUser.data[currentUser.data.length-1].currentUserName;
+        $scope.username = info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].Name;
     }
 
 });

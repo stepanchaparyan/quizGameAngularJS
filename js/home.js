@@ -1,4 +1,4 @@
-flagApp.controller('homeCtrl', function($scope, $log) {
+flagApp.controller('homeCtrl', function($scope, $rootScope, $log) {
 
     $scope.goSignUp = () => {
         angular.element('#signupBox').attr("class", "ng-show");
@@ -14,12 +14,12 @@ flagApp.controller('homeCtrl', function($scope, $log) {
       db.loadDatabase({}, function () {
       info = db.getCollection('Info');
       info.insert({
-         Name: "testname",
-         Email: "testmail",
-         Password: "testpass",
+         Name: $scope.inputName,
+         Email: $scope.inputEmail,
+         Password: $scope.inputPassword,
          MainPoints: 0,
          CapitalPoints: 0,
-         FlagPoints: 0,
+         FlagPoints: 10,
          asia1: "",
          europe1: "",
          africa1: "",
@@ -36,6 +36,28 @@ flagApp.controller('homeCtrl', function($scope, $log) {
      db.saveDatabase();
      })
      };
+
+    $scope.findUserName = () => {
+       for (var i = 0; i < info.data.length; i++) {
+         if ($scope.inputName == info.data[i].Name & $scope.inputPassword == info.data[i].Password) {
+           $scope.userNumber = i;
+           break;
+         }
+       }
+     };
+
+    $scope.logIn = () => {
+        $scope.findUserName();
+        db.loadDatabase({}, function () {
+            currentUser = db.getCollection('currentUser');
+            currentUser.insert({
+                currentUserName: $scope.inputName,
+                currentUserNumber: $scope.userNumber,
+            });
+        db.saveDatabase();
+        })
+        $log.log("home " + $scope.userNumber);
+    }
 
 
 });

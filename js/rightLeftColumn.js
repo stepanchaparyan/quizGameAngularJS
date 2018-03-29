@@ -1,4 +1,5 @@
-flagApp.controller('rightLeftCtrl', function($scope, $log) {
+flagApp.controller('rightLeftCtrl', function($scope, $rootScope, $log) {
+
   $scope.onLoadFunction = () => {
       $scope.pointFromDB = info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].FlagPoints;
       $scope.checkTitleOnLoad();

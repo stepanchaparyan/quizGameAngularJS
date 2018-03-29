@@ -13,23 +13,20 @@
 				<div>
 						<div class="jumbotron ng-show">
 						    <h1 id="welcome">Welcome to <br> Geography game</h1>
-						    <div id="welcomeText">Here you can play qiuz games about countries, capitals, flags ... </div>
+						    <div id="welcomeText">Here you can play qiuz games <br>about countries, capitals, flags ... </div>
 						</div>
 						<div class="jumbotron ng-show">
-								<div id="chooseName">Play the simple game or signup with your name</div>
+								<div id="chooseName">Play the simple game or <br>signup with your name</div>
 								<button class="chooseName" ui-sref="flag1">Play as a User</button>
 								<button class="chooseName" ng-click="goSignUp()" ng-model="signUp">Sign Up</button>
 								<button class="chooseName" ng-click="goLogIn()" ng-model="logIn">Log In</button>
 						</div>
 				</div>
 
+			 <div class="col-lg-3 col-md-2 col-sm-2 col-xs-2"></div>
 
-			 <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"></div>
-
-
-	 	 	 <div class="col-lg-6 col-md-6 col-sm-6 hidden-xs wow fadeIn delay-08s">
+	 	 	 <div class="col-lg-6 col-md-8 col-sm-8 col-xs-8 wow fadeIn delay-08s">
 			 		<div id="signupBox" class="ng-hide">
-			      <img src="img/avatar.png" class="avatar">
 	          <h1 id="signupText">Sign Up</h1>
 						<form name="formValidation">
 					    	<label>Username</label>
@@ -41,7 +38,7 @@
 					      		<p class="msg" ng-message="pattern">Username can only be alphanumeric with an optional underscore.</p>
 					    	</div>
 					    	<label>Password</label>
-					    	<input class="form-control" type="text" name="userPassword" placeholder="Enter Passwoprd" ng-model="inputPassword" ng-pattern="/^(?=.*[A-Z])(?=.*[!@#$%&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z])/" ng-minlength="8" ng-maxlength="18" required>
+					    	<input class="form-control" type="password" name="userPassword" placeholder="Enter Passwoprd" ng-model="inputPassword" ng-pattern="/^(?=.*[A-Z])(?=.*[!@#$%&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z])/" ng-minlength="8" ng-maxlength="18" required>
 					    		<div ng-messages="formValidation.userPassword.$error" ng-if="formValidation.userPassword.$touched">
 					      			<p class="msg" ng-message="minlength">Password should have at least 8 characters.</p>
 					      			<p class="msg" ng-message="maxlength">Password should have at most 18 characters.</p>
@@ -61,7 +58,6 @@
 					</div>
 
 					<div id="loginBox" class="ng-hide">
-						<img src="img/avatar.png" class="avatar">
 						<h1 id="loginText">Log In</h1>
 						<form name="loginformValidation">
 								<label>Username</label>
@@ -73,7 +69,7 @@
 										<p class="msg" ng-message="pattern">Username can only be alphanumeric with an optional underscore.</p>
 								</div>
 								<label>Password</label>
-								<input class="form-control" type="text" name="userPassword" placeholder="Enter Passwoprd" ng-model="inputPassword" ng-pattern="/^(?=.*[A-Z])(?=.*[!@#$%&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z])/" ng-minlength="8" ng-maxlength="18" required>
+								<input class="form-control" type="password" name="userPassword" placeholder="Enter Passwoprd" ng-model="inputPassword" ng-pattern="/^(?=.*[A-Z])(?=.*[!@#$%&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z])/" ng-minlength="8" ng-maxlength="18" required>
 									<div ng-messages="loginformValidation.userPassword.$error" ng-if="loginformValidation.userPassword.$touched">
 											<p class="msg" ng-message="minlength">Password should have at least 8 characters.</p>
 											<p class="msg" ng-message="maxlength">Password should have at most 18 characters.</p>
@@ -88,7 +84,7 @@
 
 				</div>
 
-				<div class="col-lg-3 col-md-3 col-sm-3 hidden-xs"></div>
+				<div class="col-lg-3 col-md-2 col-sm-2 col-xs-2"></div>
 
 
 	    </div> <!-- end center part-->
