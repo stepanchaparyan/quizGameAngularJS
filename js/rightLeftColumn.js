@@ -1,31 +1,32 @@
 flagApp.controller('rightLeftCtrl', function($scope, $rootScope, $log) {
 
+  $scope.currentUser = info.data[currentUser.data[currentUser.data.length-1].currentUserNumber];
   $scope.onLoadFunction = () => {
-      $scope.pointFromDB = info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].FlagPoints;
+      $scope.pointFromDB = $scope.currentUser.FlagPoints;
       $scope.checkTitleOnLoad();
   }
 
   $scope.knightTitle = "Knight";
   angular.element('#knight').css('color', 'orangered');
   $scope.checkTitleOnLoad = () => {
-    if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].asia1 == "disabled" &&
-        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].europe1 == "disabled" &&
-        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].africa1 == "disabled" &&
-        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].americas1 == "disabled" &&
-        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].oceania1 == "disabled" &&
-        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].world1 == "disabled") {
+    if ($scope.currentUser.asia1 == "disabled" &&
+        $scope.currentUser.europe1 == "disabled" &&
+        $scope.currentUser.africa1 == "disabled" &&
+        $scope.currentUser.americas1 == "disabled" &&
+        $scope.currentUser.oceania1 == "disabled" &&
+        $scope.currentUser.world1 == "disabled") {
           angular.element("#levelResultFlag1").removeAttr("class");
           angular.element('#buttonFlag2').removeAttr("disabled");
           $scope.knightTitle = "Baron";
           angular.element('#baron').css('color', 'orangered');
           angular.element('#knight').css('color', '#0d618a');
     }
-    if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].asia2 == "disabled" &&
-        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].europe2 == "disabled" &&
-        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].africa2 == "disabled" &&
-        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].americas2 == "disabled" &&
-        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].oceania2 == "disabled" &&
-        info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].world2 == "disabled") {
+    if ($scope.currentUser.asia2 == "disabled" &&
+        $scope.currentUser.europe2 == "disabled" &&
+        $scope.currentUser.africa2 == "disabled" &&
+        $scope.currentUser.americas2 == "disabled" &&
+        $scope.currentUser.oceania2 == "disabled" &&
+        $scope.currentUser.world2 == "disabled") {
           angular.element("#levelResultFlag2").removeAttr("class");
           angular.element('#buttonFlag3').removeAttr("disabled");
           $scope.knightTitle = "Graf";

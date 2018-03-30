@@ -39,12 +39,12 @@
 					    	</div>
 					    	<label>Password</label>
 					    	<input class="form-control" type="password" name="userPassword" placeholder="Enter Passwoprd" ng-model="inputPassword" ng-pattern="/^(?=.*[A-Z])(?=.*[!@#$%&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z])/" ng-minlength="8" ng-maxlength="20" required>
-					    		<div ng-messages="formValidation.userPassword.$error" ng-if="formValidation.userPassword.$touched">
-					      			<p class="msg" ng-message="minlength">Password should have at least 8 characters.</p>
-					      			<p class="msg" ng-message="maxlength">Password should have at most 20 characters.</p>
-					      			<p class="msg" ng-message="required">Providing a password is mandatory.</p>
-											<p class="msg" ng-message="pattern">Password should have at least one uppercase letters, one special case letter, three lowercase letters, two digits.</p>
-					    		</div>
+					    	<div ng-messages="formValidation.userPassword.$error" ng-if="formValidation.userPassword.$touched">
+					      		<p class="msg" ng-message="minlength">Password should have at least 8 characters.</p>
+					      		<p class="msg" ng-message="maxlength">Password should have at most 20 characters.</p>
+					      		<p class="msg" ng-message="required">Providing a password is mandatory.</p>
+										<p class="msg" ng-message="pattern">Password should have at least one uppercase letters, one special case letter, three lowercase letters, two digits.</p>
+					    	</div>
 								<label>Email</label>
 					    	<input class="form-control" type="email" placeholder="Enter Email" name="userEmail" ng-model="inputEmail" required>
 					    	<div ng-messages="formValidation.userEmail.$error" ng-if="formValidation.userEmail.$touched">
@@ -105,7 +105,6 @@
 	        			<div class="titles">4.&nbsp;&nbsp; Duke</div>
 	        			<div class="titles">5.&nbsp;&nbsp; King</div>
 	      		</div>
-	        	<button id="restart" ng-click="tryAgain()">Restart game</button>
 	      </div>
 
 	    </div>

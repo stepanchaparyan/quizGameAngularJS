@@ -2,6 +2,7 @@ flagApp.controller('flag2Ctrl', function($scope, $rootScope, $log) {
     $scope.countriesList;
     $scope.score = 0;
     $scope.questionNumber = 0;
+    $scope.currentUser = info.data[currentUser.data[currentUser.data.length-1].currentUserNumber];
 
     $scope.onLoadFunction = () => {
         $scope.checkDisabledInLoad();
@@ -198,29 +199,29 @@ flagApp.controller('flag2Ctrl', function($scope, $rootScope, $log) {
     }
 
     $scope.checkDisabledInLoad = () => {
-        if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].asia2 == "disabled") {
+        if ($scope.currentUser.asia2 == "disabled") {
             angular.element("#asia2").attr("disabled", "disabled");
         }
-        if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].europe2 == "disabled") {
+        if ($scope.currentUser.europe2 == "disabled") {
             angular.element("#europe2").attr("disabled", "disabled");
         }
-        if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].africa2 == "disabled") {
+        if ($scope.currentUser.africa2 == "disabled") {
             angular.element("#africa2").attr("disabled", "disabled");
         }
-        if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].americas2 == "disabled") {
+        if ($scope.currentUser.americas2 == "disabled") {
             angular.element("#americas2").attr("disabled", "disabled");
         }
-        if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].oceania2 == "disabled") {
+        if ($scope.currentUser.oceania2 == "disabled") {
             angular.element("#oceania2").attr("disabled", "disabled");
         }
-        if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].world2 == "disabled") {
+        if ($scope.currentUser.world2 == "disabled") {
             angular.element("#world2").attr("disabled", "disabled");
         }
     }
 
   $scope.nextGame = () => {
       $scope.addPoints();
-      $scope.pointFromDB = info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].FlagPoints;
+      $scope.pointFromDB = $scope.currentUser.FlagPoints;
       $scope.setDisabledThisGame();
       document.location.reload();
   }

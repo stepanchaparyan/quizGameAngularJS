@@ -16,32 +16,36 @@ flagApp.controller('homeCtrl', function($scope, $rootScope, $log) {
     }
 
     $scope.signUp = () => {
-      db.loadDatabase({}, function () {
-      info = db.getCollection('Info');
-      info.insert({
-         Name: $scope.inputName,
-         Email: $scope.inputEmail,
-         Password: $scope.inputPassword,
-         MainPoints: 0,
-         CapitalPoints: 0,
-         FlagPoints: 0,
-         playAsAUserButton: "disabled",
-         asia1: "",
-         europe1: "",
-         africa1: "",
-         americas1: "",
-         oceania1: "",
-         world1: "",
-         asia2: "",
-         europe2: "",
-         africa2: "",
-         americas2: "",
-         oceania2: "",
-         world2: ""
-       });
-     db.saveDatabase();
-     })
-     $scope.logIn();
+      if ($scope.formValidation.username.$valid &&
+          $scope.formValidation.userPassword.$valid &&
+          $scope.formValidation.userEmail.$valid) {
+            db.loadDatabase({}, function () {
+              info = db.getCollection('Info');
+              info.insert({
+                Name: $scope.inputName,
+                Email: $scope.inputEmail,
+                Password: $scope.inputPassword,
+                MainPoints: 0,
+                CapitalPoints: 0,
+                FlagPoints: 0,
+                playAsAUserButton: "disabled",
+                asia1: "",
+                europe1: "",
+                africa1: "",
+                americas1: "",
+                oceania1: "",
+                world1: "",
+                asia2: "",
+                europe2: "",
+                africa2: "",
+                americas2: "",
+                oceania2: "",
+                world2: ""
+              });
+            db.saveDatabase();
+          })
+          $scope.logIn();
+        }
      };
 
     $scope.logIn = () => {
@@ -52,7 +56,7 @@ flagApp.controller('homeCtrl', function($scope, $rootScope, $log) {
             $scope.addCurrentUser();
             break;
          } else {
-           $scope.noUser = "Wrong username or password.";
+           $scope.noUser = `Wrong username or password.`;
          }
        }
      };
