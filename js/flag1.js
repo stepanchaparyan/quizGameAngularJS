@@ -1,4 +1,4 @@
-flagApp.controller('flag1Ctrl', function($scope, $log) {
+flagApp.controller('flag1Ctrl', function($scope, $rootScope, $log) {
   $scope.countriesList;
   $scope.score = 0;
   $scope.questionNumber = 0;
@@ -136,7 +136,6 @@ flagApp.controller('flag1Ctrl', function($scope, $log) {
     $scope.addDisabledFlag1 = (continent) => {
         db.loadDatabase({}, function () {
         info = db.getCollection('Info');
-        var user = info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].Name;
         if (continent == "asia") {
           info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].asia1 = "disabled";
         } else if (continent == "africa") {

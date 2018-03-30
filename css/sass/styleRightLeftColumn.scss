@@ -1,4 +1,5 @@
 $leftPartBackgroundLightGrey: #f5f0e4;
+$mainBlue: #0d618a;
 
 /***right-part***/
 .right-part {
@@ -79,6 +80,7 @@ $leftPartBackgroundLightGrey: #f5f0e4;
   border: none;
   color: #0d618a;
   background-color: $leftPartBackgroundLightGrey;
+  outline: none;
   font-size: 20px;
   width: 80%;
   cursor: pointer;
@@ -88,7 +90,7 @@ $leftPartBackgroundLightGrey: #f5f0e4;
 
 #restart:hover {
   color: white;
-  background-color: #48B484;
+  background-color: $mainBlue;
   border-radius: 25px;
 }
 

@@ -17,7 +17,7 @@
 						</div>
 						<div class="jumbotron ng-show">
 								<div id="chooseName">Play the simple game or <br>signup with your name</div>
-								<button class="chooseName" ui-sref="flag1">Play as a User</button>
+								<button class="chooseName" id="playAsAUserButton" ui-sref="flag1">Play as a User</button>
 								<button class="chooseName" ng-click="goSignUp()" ng-model="signUp">Sign Up</button>
 								<button class="chooseName" ng-click="goLogIn()" ng-model="logIn">Log In</button>
 						</div>
@@ -30,18 +30,18 @@
 	          <h1 id="signupText">Sign Up</h1>
 						<form name="formValidation">
 					    	<label>Username</label>
-					    	<input class="form-control" type="text" name="username" placeholder="Enter Username" ng-model="inputName" ng-minlength="6" ng-maxlength="12" ng-pattern="/^\w+$/" required>
+					    	<input class="form-control" type="text" name="username" placeholder="Enter Username" ng-model="inputName" ng-minlength="6" ng-maxlength="20" ng-pattern="/^\w+$/" required>
 					    	<div ng-messages="formValidation.username.$error" ng-if="formValidation.username.$touched">
 					      		<p class="msg" ng-message="minlength">Username should have at least 6 characters.</p>
-					      		<p class="msg" ng-message="maxlength">Username should have at most 12 characters.</p>
+					      		<p class="msg" ng-message="maxlength">Username should have at most 20 characters.</p>
 					      		<p class="msg" ng-message="required">Providing a username is mandatory.</p>
 					      		<p class="msg" ng-message="pattern">Username can only be alphanumeric with an optional underscore.</p>
 					    	</div>
 					    	<label>Password</label>
-					    	<input class="form-control" type="password" name="userPassword" placeholder="Enter Passwoprd" ng-model="inputPassword" ng-pattern="/^(?=.*[A-Z])(?=.*[!@#$%&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z])/" ng-minlength="8" ng-maxlength="18" required>
+					    	<input class="form-control" type="password" name="userPassword" placeholder="Enter Passwoprd" ng-model="inputPassword" ng-pattern="/^(?=.*[A-Z])(?=.*[!@#$%&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z])/" ng-minlength="8" ng-maxlength="20" required>
 					    		<div ng-messages="formValidation.userPassword.$error" ng-if="formValidation.userPassword.$touched">
 					      			<p class="msg" ng-message="minlength">Password should have at least 8 characters.</p>
-					      			<p class="msg" ng-message="maxlength">Password should have at most 18 characters.</p>
+					      			<p class="msg" ng-message="maxlength">Password should have at most 20 characters.</p>
 					      			<p class="msg" ng-message="required">Providing a password is mandatory.</p>
 											<p class="msg" ng-message="pattern">Password should have at least one uppercase letters, one special case letter, three lowercase letters, two digits.</p>
 					    		</div>
@@ -61,10 +61,10 @@
 						<h1 id="loginText">Log In</h1>
 						<form name="loginformValidation">
 								<label>Username</label>
-								<input class="form-control" type="text" name="username" placeholder="Enter Username" ng-model="inputName" ng-minlength="6" ng-maxlength="12" ng-pattern="/^\w+$/" required>
+								<input class="form-control" type="text" name="username" placeholder="Enter Username" ng-model="inputName" ng-minlength="6" ng-maxlength="18" ng-pattern="/^\w+$/" required>
 								<div ng-messages="loginformValidation.username.$error" ng-if="loginformValidation.username.$touched">
 										<p class="msg" ng-message="minlength">Username should have at least 6 characters.</p>
-										<p class="msg" ng-message="maxlength">Username should have at most 12 characters.</p>
+										<p class="msg" ng-message="maxlength">Username should have at most 18 characters.</p>
 										<p class="msg" ng-message="required">Providing a username is mandatory.</p>
 										<p class="msg" ng-message="pattern">Username can only be alphanumeric with an optional underscore.</p>
 								</div>
@@ -76,6 +76,7 @@
 											<p class="msg" ng-message="required">Providing a password is mandatory.</p>
 											<p class="msg" ng-message="pattern">Password should have at least one uppercase letters, one special case letter, three lowercase letters, two digits.</p>
 									</div>
+								<p class="msg"> {{ noUser }} </p>
 								<div id="divButton">
 										<button id="loginButton" ng-click="logIn()">Log In</button>
 								</div>

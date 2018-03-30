@@ -1,5 +1,11 @@
 flagApp.controller('homeCtrl', function($scope, $rootScope, $log) {
 
+    $scope.onLoadFunction = () => {
+        if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].playAsAUserButton == "disabled") {
+            angular.element("#playAsAUserButton").attr("disabled", "disabled");
+        }
+    }
+
     $scope.goSignUp = () => {
         angular.element('#signupBox').attr("class", "ng-show");
         angular.element('.jumbotron').attr("class", "ng-hide");
@@ -10,7 +16,6 @@ flagApp.controller('homeCtrl', function($scope, $rootScope, $log) {
     }
 
     $scope.signUp = () => {
-      $log.log("OK ");
       db.loadDatabase({}, function () {
       info = db.getCollection('Info');
       info.insert({
@@ -19,7 +24,8 @@ flagApp.controller('homeCtrl', function($scope, $rootScope, $log) {
          Password: $scope.inputPassword,
          MainPoints: 0,
          CapitalPoints: 0,
-         FlagPoints: 10,
+         FlagPoints: 0,
+         playAsAUserButton: "disabled",
          asia1: "",
          europe1: "",
          africa1: "",
@@ -35,19 +41,23 @@ flagApp.controller('homeCtrl', function($scope, $rootScope, $log) {
        });
      db.saveDatabase();
      })
+     $scope.logIn();
      };
 
-    $scope.findUserName = () => {
+    $scope.logIn = () => {
        for (var i = 0; i < info.data.length; i++) {
          if ($scope.inputName == info.data[i].Name & $scope.inputPassword == info.data[i].Password) {
-           $scope.userNumber = i;
-           break;
+            $scope.noUser = "";
+            $scope.userNumber = i;
+            $scope.addCurrentUser();
+            break;
+         } else {
+           $scope.noUser = "Wrong username or password.";
          }
        }
      };
 
-    $scope.logIn = () => {
-        $scope.findUserName();
+    $scope.addCurrentUser = () => {
         db.loadDatabase({}, function () {
             currentUser = db.getCollection('currentUser');
             currentUser.insert({
@@ -56,7 +66,7 @@ flagApp.controller('homeCtrl', function($scope, $rootScope, $log) {
             });
         db.saveDatabase();
         })
-        $log.log("home " + $scope.userNumber);
+        document.location.reload();
     }
 
 

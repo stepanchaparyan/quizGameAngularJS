@@ -66,6 +66,7 @@
   border: none;
   color: #0d618a;
   background-color: #f5f0e4;
+  outline: none;
   font-size: 20px;
   width: 80%;
   cursor: pointer;
@@ -74,7 +75,7 @@
 
 #restart:hover {
   color: white;
-  background-color: #48B484;
+  background-color: #0d618a;
   border-radius: 25px; }
 
 /***left-part***/

@@ -13,15 +13,14 @@
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.js"></script>
-
-  <script type="text/javascript" src="script.js"></script>
-
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="src/lokijs.js"></script>
+
   <link rel="stylesheet" href="css/styleFlag.css">
   <link rel="stylesheet" href="css/styleRightLeftColumn.css">
   <link rel="stylesheet" href="css/styleLoginSignup.css">
-  <script type="text/javascript" src="src/lokijs.js"></script>
+  <script type="text/javascript" src="script.js"></script>
   <script type="text/javascript" src="js/loki.js"></script>
   <script type="text/javascript" src="js/home.js"></script>
   <script type="text/javascript" src="js/flag1.js"></script>
@@ -49,7 +48,7 @@
 					      <ul class="nav navbar-nav navbar-right">
                     <a class="navbar-brand"><span id="username"> {{ username }} </span></a>
                     <li><img id="userPicture" src="img/stepan.jpg" alt="Avatar"></li>
-						        <a class="navbar-brand"><span class="glyphicon glyphicon-user"></span> Sign out</a>
+						        <a class="navbar-brand" ng-click="signOut()"><span class="glyphicon glyphicon-user"></span> Sign out</a>
 					      </ul>
                 <ul class="nav navbar-nav">
                     <button class="navbar-brand buttonFlag" ui-sref="home()" ui-sref-active="active">Home</button>
