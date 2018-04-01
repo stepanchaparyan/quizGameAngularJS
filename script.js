@@ -1,23 +1,26 @@
-var flagApp = angular.module('flagCtrl', ['ui.router', 'ngMessages']);
+var flagApp = angular.module('flagCtrl', ['ngRoute', 'ngMessages']);
 
-flagApp.config(function($stateProvider, $urlRouterProvider) {
-	$stateProvider
-  	.state ("home", {
-    		url: '/',
-    		templateUrl: 'pages/home.html'
+flagApp.config(function($routeProvider, $locationProvider) {
+	$routeProvider
+  	.when ("/", {
+    		templateUrl: 'pages/home.html',
+				controller: "homeCtrl"
   	})
-		.state ("flag1", {
-				url: '/flag1',
-				templateUrl: 'pages/flag1.html'
-		})
-		.state ("flag2", {
-				url: '/flag2',
-				templateUrl: 'pages/flag2.html'
-		})
-		.state ("flag3", {
-				url: '/flag3',
-				templateUrl: 'pages/flag3.html'
-		})
-		$urlRouterProvider.otherwise('/');
-//		$locationProvider.html5Mode(true);
+		.when ("/flag1", {
+    		templateUrl: 'pages/flag1.html',
+				controller: "flag1Ctrl"
+  	})
+		.when ("/flag2", {
+    		templateUrl: 'pages/flag2.html',
+				controller: "flag2Ctrl"
+  	})
+		.when ("/flag3", {
+    		templateUrl: 'pages/flag3.html',
+				controller: "flag3Ctrl"
+  	})
+		.otherwise({
+				redirectTo: '/'
+		});
+		$locationProvider.html5Mode(true);
+
 });
