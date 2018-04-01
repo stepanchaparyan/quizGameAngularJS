@@ -4,6 +4,19 @@ flagApp.controller('homeCtrl', function($scope, $rootScope, $log) {
         if (info.data[currentUser.data[currentUser.data.length-1].currentUserNumber].playAsAUserButton == "disabled") {
             angular.element("#playAsAUserButton").attr("disabled", "disabled");
         }
+
+        $(document).ready(function(){
+        $('.bxslider').bxSlider({
+          auto: true,
+          stopAutoOnClick: true,
+          pager: true,
+          slideWidth: 600,
+          speed: 800,
+          randomStart: true,
+          responsive: true,
+          controls: false
+        });
+        });
     }
 
     $scope.goSignUp = () => {
