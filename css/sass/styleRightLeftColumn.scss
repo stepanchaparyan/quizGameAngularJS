@@ -117,3 +117,25 @@ $mainBlue: #0d618a;
 .bx-wrapper {
   margin-top: 20px !important;
 }
+
+.buttonsref {
+  margin: 20px 20px 20px 0;
+  font-size: 22px;
+  color: #0d618a;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: red;
+}
+
+.buttonsref:disabled {
+  color: red;
+}
+
+.buttontest {
+  margin: 20px 20px 20px 0;
+  font-size: 22px;
+  color: #0d618a;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: red;
+}

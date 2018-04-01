@@ -4,6 +4,12 @@
 
 	  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 left-part" ng-controller="rightLeftCtrl">
 	        <div class="info" ui-sref="home()">Home page</div>
+					<div>
+							<button class="buttonSref" ui-sref="home()" ui-sref-active="active">Home</button>
+							<button class="buttonSref" ui-sref="flag1()" ui-sref-active="active">Flag 1</button>
+							<button class="buttonSref" id="buttonFlag2" disabled ui-sref="flag2()" ui-sref-active="active">Flag 2</button>
+							<button class="buttonsref" id="buttonFlag3" disabled ui-sref="flag3()" ui-sref-active="active">Flag 3</button>
+					</div>
 
 					<div class="bxslider">
 							<div><img src="flags/am.svg"></div>
@@ -13,6 +19,9 @@
 							<div><img src="flags/es.svg"></div>
 							<div><img src="flags/se.svg"></div>
 				 </div>
+
+				 <button class="buttontest" id="buttonFlag22222">Flag 2</button>
+
 
 	  </div>
 

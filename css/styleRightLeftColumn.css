@@ -98,4 +98,7 @@
 .bx-wrapper {
   margin-top: 20px !important; }
 
+.buttonsref:disabled {
+  color: red; }
+
 /*# sourceMappingURL=styleRightLeftColumn.css.map */
