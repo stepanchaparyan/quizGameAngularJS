@@ -1,11 +1,5 @@
 flagApp.controller('flag1Ctrl', function($scope, $rootScope, $log, $location) {
 
-  $scope.reloadRoute = function () {
-  $route.reload();
-  };
-  
-
-
   $scope.countriesList;
   $scope.score = 0;
   $scope.questionNumber = 0;
