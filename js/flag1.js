@@ -15,11 +15,11 @@ flagApp.controller('flag1Ctrl', function($scope, $rootScope, $log) {
 
   $scope.questionsRight = function () {
       $scope.flag = $scope.countriesList[$scope.randomNumber].flag;
-      $scope.question = "This is the flag of " + $scope.countriesList[$scope.randomNumber].name;
+      $scope.question = `This is the flag of ${$scope.countriesList[$scope.randomNumber].name}`;
   };
   $scope.questionsWrong = function () {
       $scope.flag = $scope.countriesList[$scope.randomNumber].flag;
-      $scope.question = "This is the flag of " + $scope.countriesList[$scope.randomNumberExcluded].name;
+      $scope.question = `This is the flag of ${$scope.countriesList[$scope.randomNumberExcluded].name}`;
   };
 
   $scope.setRandomNumbers = (continent) => {
@@ -63,19 +63,19 @@ flagApp.controller('flag1Ctrl', function($scope, $rootScope, $log) {
   $scope.setNewCSS = (color) => {
     if (color == "green") {
       $scope.classAnswerText.push('greenBorder');
-      $scope.answerText = "You are right";
+      $scope.answerText = `You are right`;
     } else if (color == "red") {
       $scope.classAnswerText.push('redBorder');
-      $scope.answerText = "Sorry, but the question was right";
+      $scope.answerText = `Sorry, but the question was right`;
     }
   }
 
-  $scope.addRightAnswer = () => $scope.answerText = "Right answer: This is the flag of " + $scope.countriesList[$scope.randomNumber].name;
+  $scope.addRightAnswer = () => $scope.answerText = `Right answer: This is the flag of ${$scope.countriesList[$scope.randomNumber].name}`;
 
   //print score and question number
   $scope.result = () => {
-      $scope.resultStep = " Question: " + ($scope.questionNumber + 1) + " /20";
-      $scope.resultScore = " Score: " + $scope.score + " /20";
+      $scope.resultStep = ` Question: ${$scope.questionNumber + 1} /20`;
+      $scope.resultScore = ` Score: ${$scope.score} /20`;
   }
 
   $scope.disabledNext = true;
@@ -111,7 +111,7 @@ flagApp.controller('flag1Ctrl', function($scope, $rootScope, $log) {
 
   $scope.finalResult = () => {
       if ($scope.questionNumber == 5) {
-          let text = "Thank you, you got " + $scope.score + " points";
+          let text = `Thank you, you got ${$scope.score} points`;
           $scope.finalScore = text;
           angular.element('#main').attr("class", "ng-hide");
           angular.element("#feedbackPage").removeAttr("class");
