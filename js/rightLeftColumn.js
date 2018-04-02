@@ -37,19 +37,3 @@ flagApp.controller('rightLeftCtrl', function($scope, $rootScope, $log) {
       }
 
   });
-
-
-/*
-$(document).ready(function(){
-$('.bxslider').bxSlider({
-  auto: true,
-  stopAutoOnClick: true,
-  pager: true,
-  slideWidth: 600,
-  speed: 800,
-  randomStart: true,
-  responsive: true,
-  controls: false
-});
-});
-*/

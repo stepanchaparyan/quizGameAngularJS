@@ -1,5 +1,6 @@
 $leftPartBackgroundLightGrey: #f5f0e4;
 $mainBlue: #0d618a;
+$hoverBlue: #1590e4;
 
 /***right-part***/
 .right-part {
@@ -101,11 +102,12 @@ $mainBlue: #0d618a;
 }
 
 .info {
-  margin: 20px 0 20px 0;
+  margin: 15% 0 40% 15%;
   font-size: 22px;
   color: #0d618a;
   font-weight: bold;
   cursor: pointer;
+  width: 70%;
 }
 
 .info:hover {
@@ -115,7 +117,7 @@ $mainBlue: #0d618a;
 }
 
 .bx-wrapper {
-  margin-top: 20px !important;
+  margin-top: 60% !important;
 }
 
 .buttonsref {
@@ -131,11 +133,39 @@ $mainBlue: #0d618a;
   color: red;
 }
 
-.buttontest {
-  margin: 20px 20px 20px 0;
+.roundButton {
+  margin: 5px 0 5px 0;
   font-size: 22px;
-  color: #0d618a;
+  color: white !important;
   font-weight: bold;
   cursor: pointer;
+  border: none;
+  background-color: $mainBlue;
+  width: 70%;
+  border-radius: 5px;
+  outline: none;
+}
+
+.roundButton:hover {
+  background-color: #e7e7e7;
+  color: $mainBlue !important;
+}
+
+.roundButton:disabled {
+  color: white;
   background-color: red;
+}
+
+.roundButton:disabled:hover {
+  color: red !important;
+  background-color: white;
+}
+
+.active {
+  background-color: $hoverBlue !important;
+}
+
+.active:hover {
+  background-color: #e7e7e7 !important;
+  color: $hoverBlue !important;
 }

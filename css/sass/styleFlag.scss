@@ -71,28 +71,6 @@ nav {
   color: #083b54;
 }
 
-.active {
-  color: #0d618a !important;
-}
-
-.buttonFlag {
-  border-color: $backgroundGreen !important;
-  background-color: $backgroundGreen;
-  color: white;
-  margin-right: 40px;
-  border: none;
-  outline: none;
-}
-
-.buttonFlag:hover, .buttonFlag:disabled:hover{
-  background-color: $navbarHoverGreen;
-}
-
-.buttonFlag:disabled {
-  color: red !important;
-  background-color: $backgroundGreen;
-}
-
 /****** Footer *******/
 footer {
   padding: 1em;
@@ -103,7 +81,7 @@ footer {
   position: relative;
   bottom: 0;
   width: 84%;
-  height: 6.5vh;
+  height: 5.5vh;
   margin-left: 8%;
   margin-right: 8%;
 }
@@ -133,7 +111,7 @@ footer {
   text-align: center;
   position: relative;
   width: 84%;
-  height: 87.1vh;
+  height: 89.8vh;
   margin-left: 8%;
   margin-right: 8%;
   background-color: white;

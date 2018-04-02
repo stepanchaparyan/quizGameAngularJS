@@ -1,4 +1,4 @@
-flagApp.controller('flag1Ctrl', function($scope, $rootScope, $log) {
+flagApp.controller('flag1Ctrl', function($scope, $rootScope, $log, $location) {
   $scope.countriesList;
   $scope.score = 0;
   $scope.questionNumber = 0;
@@ -223,6 +223,7 @@ flagApp.controller('flag1Ctrl', function($scope, $rootScope, $log) {
     $scope.tryAgain = () => {
         $scope.resetPoints();
         $scope.resetDisabled();
+        $location.path('/');
     }
 
     $scope.start = (continent) => {

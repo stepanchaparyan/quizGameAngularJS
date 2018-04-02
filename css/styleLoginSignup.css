@@ -70,6 +70,9 @@ label {
   font-weight: bold;
   outline: none; }
 
+.chooseName:hover {
+  background: #106eae; }
+
 #chooseName {
   font-size: 2em;
   color: #0d618a;

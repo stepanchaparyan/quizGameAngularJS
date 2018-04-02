@@ -1,4 +1,4 @@
-flagApp.controller('flag3Ctrl', function($scope, $rootScope, $log) {
+flagApp.controller('flag3Ctrl', function($scope, $rootScope, $log, $location) {
 
 
 });

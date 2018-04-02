@@ -4,6 +4,18 @@
 
 	      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 left-part" ng-controller="rightLeftCtrl">
 	          <div class="info" ui-sref="home()">Home page</div>
+						<div>
+								<hr></hr>
+								<button class="roundButton" ui-sref="home()" ui-sref-active="active">Home</button>
+								<hr></hr>
+								<button class="roundButton" ui-sref="flag1()" ui-sref-active="active">Flag 1</button>
+								<hr></hr>
+								<button class="roundButton" id="buttonFlag2" disabled ui-sref="flag2()" ui-sref-active="active">Flag 2</button>
+								<hr></hr>
+								<button class="roundButton" id="buttonFlag3" disabled ui-sref="flag3()" ui-sref-active="active">Flag 3</button>
+								<hr></hr>
+						</div>
+
 	      </div>
 
 	    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 centerPart">
@@ -35,7 +47,7 @@
 	        			<div class="titles">4.&nbsp;&nbsp; Duke</div>
 	        			<div class="titles">5.&nbsp;&nbsp; King</div>
 	      		</div>
-	        	<button id="restart" ng-click="tryAgain()">Restart game</button>
+	        	<button id="restart" ui-sref="home" ng-click="tryAgain()">Restart game</button>
 	      </div>
 
 	    </div>

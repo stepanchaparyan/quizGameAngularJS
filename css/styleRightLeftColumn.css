@@ -84,11 +84,12 @@
   height: 100%; }
 
 .info {
-  margin: 20px 0 20px 0;
+  margin: 15% 0 40% 15%;
   font-size: 22px;
   color: #0d618a;
   font-weight: bold;
-  cursor: pointer; }
+  cursor: pointer;
+  width: 70%; }
 
 .info:hover {
   background-color: #0d618a;
@@ -96,9 +97,48 @@
   border-radius: 10px; }
 
 .bx-wrapper {
-  margin-top: 20px !important; }
+  margin-top: 60% !important; }
+
+.buttonsref {
+  margin: 20px 20px 20px 0;
+  font-size: 22px;
+  color: #0d618a;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: red; }
 
 .buttonsref:disabled {
   color: red; }
+
+.roundButton {
+  margin: 5px 0 5px 0;
+  font-size: 22px;
+  color: white !important;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  background-color: #0d618a;
+  width: 70%;
+  border-radius: 5px;
+  outline: none; }
+
+.roundButton:hover {
+  background-color: #e7e7e7;
+  color: #0d618a !important; }
+
+.roundButton:disabled {
+  color: white;
+  background-color: red; }
+
+.roundButton:disabled:hover {
+  color: red !important;
+  background-color: white; }
+
+.active {
+  background-color: #1590e4 !important; }
+
+.active:hover {
+  background-color: #e7e7e7 !important;
+  color: #1590e4 !important; }
 
 /*# sourceMappingURL=styleRightLeftColumn.css.map */
